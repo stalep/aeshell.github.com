@@ -40,43 +40,42 @@
     </div>
     <div class='container'>
       <script type='text/javascript'>
-  //<![CDATA[
-    $(document).ready(function() {
-      var pathname = window.location.pathname;
-      console.log(pathname);
-      $("body > .navbar a[href='/docs/index.html']").closest("li").addClass("active");
-      $("body > .content ul.nav a[href='" + pathname + "']").closest("li").addClass("active");
-    });
-  //]]>
-</script>
-<div class='container-fluid'>
-  <div class='row-fluid'>
-    <div class='span2'>
-      <ul class='nav nav-list'>
-        <li class='nav-header'>JReadline Base</li>
-        <li>
-          <a href='/docs/base/'>Using</a>
-        </li>
-        <li>
-          <a href='/docs/base/contribute.html'>Contribute</a>
-        </li>
-        <li>
-          <a href='/docs/base/faq.html'>FAQ</a>
-        </li>
-      </ul>
-    </div>
-    <div class='span10'>
-      <h1><span class="caps">FAQ</span></h1>
-<h3>How is JReadline different from Jline1/2?</h3>
-<p>The tools are similar in the way that they are both command line tools that help setting up and configuring a project, and both have the ability to generate code. There are some major design differences however:</p>
-<p>1) Forge is designed to be used on any kind of Maven project. Roo is pretty much tied to Spring. Because Forge is more general you can find or write plugins for any kind of technology that you use in projects. This is also true for Roo, but only technology on top of Spring. You could say that Forge is a (more) generic framework for building plugins that work on Maven projects, while Roo is (just) a Spring tool.</p>
-<h3>I found an issue, where can I report it?</h3>
-<p>Create an issue in the <a href="https://github.com/jreadline/jreadline/issues">issue tracker</a></p>
-<h3>How can I contribute to JReadline?</h3>
-<p>More generally, see <a href="/docs/contribute.html">this</a></p>
-    </div>
-  </div>
-</div>
+        //<![CDATA[
+          $(document).ready(function() {
+            var pathname = window.location.pathname;
+            console.log(pathname);
+            $("body > .navbar a[href='/docs/index.html']").closest("li").addClass("active");
+            $("body > .content ul.nav a[href='" + pathname + "']").closest("li").addClass("active");
+          });
+        //]]>
+      </script>
+      <div class='container-fluid'>
+        <div class='row-fluid'>
+          <div class='span2'>
+            <ul class='nav nav-list'>
+              <li class='nav-header'>JReadline Base</li>
+              <li>
+                <a href='/docs/base/contribute.html'>Contribute</a>
+              </li>
+              <li>
+                <a href='/docs/base/'>Getting started</a>
+              </li>
+              <li>
+                <a href='/docs/base/faq.html'>FAQ</a>
+              </li>
+            </ul>
+          </div>
+          <div class='span10'>
+            <h1><span class="caps">FAQ</span></h1>
+            <h3>How is JReadline different from Jline1/2?</h3>
+            <p>The JReadline started out of some of the shortcomings of Jline and its <span class="caps">API</span> is somewhat similar for getting output from console. Completion/Settings/etc is howevery different but changing from Jline to JReadline should not require much work.</p>
+            <h3>I found an issue, where can I report it?</h3>
+            <p>Create an issue in the <a href="https://github.com/jreadline/jreadline/issues">issue tracker</a></p>
+            <h3>How can I contribute to JReadline?</h3>
+            <p>More generally, see <a href="/docs/contribute.html">this</a></p>
+          </div>
+        </div>
+      </div>
       <hr />
       <footer>
         <p>&copy; JBoss by Red Hat 2012</p>
