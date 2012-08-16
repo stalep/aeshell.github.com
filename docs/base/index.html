@@ -55,10 +55,10 @@
       <ul class='nav nav-list'>
         <li class='nav-header'>JReadline Base</li>
         <li>
-          <a href='/docs/base/'>Using</a>
+          <a href='/docs/base/contribute.html'>Contribute</a>
         </li>
         <li>
-          <a href='/docs/base/contribute.html'>Contribute</a>
+          <a href='/docs/base/'>Getting started</a>
         </li>
         <li>
           <a href='/docs/base/faq.html'>FAQ</a>
@@ -66,7 +66,7 @@
       </ul>
     </div>
     <div class='span10'>
-      <h1>Using JReadline</h1>
+      <h1>Getting started</h1>
 <p>Since JReadline is created to be extended and used by other applications it do not do much on its own. However, it is very easy to get started with a simple application. Here is a very short code that will start JReadline:</p>
 <pre class="prettyprint linenums"><code class="prettyprint linenums">&#x000A;public class Example {&#x000A;  public static void main(String[] args) throws java.io.IOException {&#x000A;    org.jboss.jreadline.console.Console console = new org.jboss.jreadline.console.Console();</code>&#x000A;&#x000A;<code class="prettyprint linenums">    org.jboss.jreadline.console.ConsoleOutput line;&#x000A;    while ((line = console.read("&gt; ")) != null) {&#x000A;        console.pushToConsole("======&gt;\"" +line.getBuffer()+ "\n");</code>&#x000A;&#x000A;<code class="prettyprint linenums">        if (line.getBuffer().equalsIgnoreCase("quit") || line.getBuffer().equalsIgnoreCase("exit")) {&#x000A;            break;&#x000A;        }&#x000A;    }&#x000A;  }&#x000A;}</code></pre>
 <h3>Obtain JReadline</h3>
