@@ -1,0 +1,5 @@
+profiles:
+  development:
+  production:
+    base_url: http://www.jboss.org/projects/jreadline
+ 

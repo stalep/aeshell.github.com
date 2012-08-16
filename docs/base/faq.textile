@@ -1,0 +1,25 @@
+---
+layout: docs
+title: FAQ
+index: 42
+---
+
+h1. FAQ
+
+
+h3. How is JReadline different from Jline1/2?
+
+The tools are similar in the way that they are both command line tools that help setting up and configuring a project, and both have the ability to generate code. There are some major design differences however:
+
+1) Forge is designed to be used on any kind of Maven project. Roo is pretty much tied to Spring. Because Forge is more general you can find or write plugins for any kind of technology that you use in projects. This is also true for Roo, but only technology on top of Spring. You could say that Forge is a (more) generic framework for building plugins that work on Maven projects, while Roo is (just) a Spring tool.
+
+
+
+h3. I found an issue, where can I report it?
+
+Create an issue in the "issue tracker":https://github.com/jreadline/jreadline/issues
+
+
+h3. How can I contribute to JReadline?
+
+More generally, see "this":/docs/contribute.html

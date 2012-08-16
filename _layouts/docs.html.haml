@@ -1,0 +1,23 @@
+ ---
+layout: base
+---
+:javascript
+  $(document).ready(function() {
+    var pathname = window.location.pathname;
+    console.log(pathname);
+    $("body > .navbar a[href='/docs/index.html']").closest("li").addClass("active");
+    $("body > .content ul.nav a[href='" + pathname + "']").closest("li").addClass("active");
+  });
+
+
+.container-fluid
+  .row-fluid   
+    .span2
+      %ul.nav.nav-list
+        %li.nav-header JReadline Base
+        - for doc in site.docs_base
+          %li
+            %a{ :href=>doc.url}= doc.title
+
+    .span10 
+      ~ content

@@ -1,0 +1,45 @@
+---
+layout: docs
+title: Using
+index: 1
+---
+
+h1. Using JReadline
+
+Since JReadline is created to be extended and used by other applications it do not do much on its own. However, it is very easy to get started with a simple application. Here is a very short code that will start JReadline:
+
+bc(prettyprint linenums).. 
+public class Example {
+  public static void main(String[] args) throws java.io.IOException {
+    org.jboss.jreadline.console.Console console = new org.jboss.jreadline.console.Console();
+
+    org.jboss.jreadline.console.ConsoleOutput line;
+    while ((line = console.read("> ")) != null) {
+        console.pushToConsole("======>\"" +line.getBuffer()+ "\n");
+
+        if (line.getBuffer().equalsIgnoreCase("quit") || line.getBuffer().equalsIgnoreCase("exit")) {
+            break;
+        }
+    }
+  }
+}
+
+h3. Obtain JReadline
+
+The easiest way to get JReadline is with "Maven":http://www.apache.org/maven. Add a dependecy like:
+
+bc(prettyprint linenums).. <dependency>
+    <groupId>org.jboss.jreadline</groupId>
+    <artifactId>jreadline</artifactId>
+    <version>${version.jreadline}</version>
+</dependency>
+
+
+p. Using "Gradle":http://www.gradle.org/:
+
+bc(prettyprint linenums).. dependencies {
+    compile group: 'org.jboss.jreadline', name: 'jreadline', version: '0.+'
+}
+
+
+

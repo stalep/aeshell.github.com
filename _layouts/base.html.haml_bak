@@ -1,0 +1,34 @@
+!!!
+%html
+  %head
+    %meta{ :charset=>'utf-8' }
+    %title JReadline
+    %link{ :rel=>'stylesheet', :type=>'text/css', :href=>'/stylesheets/screen.css', :media=>'screen, projection' }
+    %link{ :rel=>'stylesheet', :type=>'text/css', :href=>'/stylesheets/print.css', :media=>'print' }
+    /[if lt IE 8]
+      %link{ :rel=>'stylesheet', :type=>'text/css', :href=>'/stylesheets/ie.css', :media=>'screen, projection' }
+    %meta{ :name=>'viewport', :content=>'width=device-width, initial-scale=1.0' }
+    :css
+      body {
+        padding-top: 60px;
+      }
+    
+  %body.bp
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.brand{ :href=>"#{site.base_url}" } JReadline test.
+          %u1.nav
+            %li
+              %a{ :href=>"http://github.com/awestruct/github_pages" } Source Code
+            %li
+              %a{ :href=>"http://awestruct.org/" } Awestruct Home
+            %li
+              %a{ :href=>"http://github.com/awestruct/awestruct" } Awestruct Source 
+              
+    .container
+      ~ content
+      %hr
+      %footer
+        %p &copy; Ståle Pedersen #{Date.today.year
+        
