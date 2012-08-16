@@ -1,11 +1,11 @@
 ---
 layout: docs
-title: Using
-index: 1
+title: Getting started
+index: 0
 ---
 
-h1. Using JReadline
-
+h1. Getting started
+  
 Since JReadline is created to be extended and used by other applications it do not do much on its own. However, it is very easy to get started with a simple application. Here is a very short code that will start JReadline:
 
 bc(prettyprint linenums).. 
