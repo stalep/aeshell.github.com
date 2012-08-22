@@ -1,0 +1,56 @@
+---
+layout: docs
+title: Completion
+index: 4
+---
+
+h1. Completion
+
+<br/>
+
+JReadline provide a simple API to connect commands to its tab-completion list. The only thing thats needed is to implement the <a href="https://github.com/jreadline/jreadline/blob/master/src/main/java/org/jboss/jreadline/complete/Completion.java">Completion</a> interface and attach it to <a href="https://github.com/jreadline/jreadline/blob/master/src/main/java/org/jboss/jreadline/console/Console.java">Console</a> with the method _addCompletion(Completion)_ or _addCompletions(List<Completion> completionList)_.
+
+A simple Example:
+  
+bc(prettyprint linenums).. 
+import org.jboss.jreadline.complete.*;
+import org.jboss.jreadline.console.*;
+
+public class Example {
+  public static void main(String[] args) throws java.io.IOException {
+    Console console = new Console();
+
+    Completion completer = new Completion() {
+      @Override
+      public void complete(CompleteOperation co) {
+	// very simple completor
+        // if <tab> is pressed when the buffer is 'fo' or 'foo' it will
+        // be completed to 'foobar'
+	if(co.getBuffer().equals("fo") || co.getBuffer().equals("foo"))
+          co.addCompletionCandidate("foobar");
+      }
+    };
+    console.addCompletion(completer);
+
+    ConsoleOutput line;
+    while ((line = console.read("> ")) != null) {
+        console.pushToConsole("======>\"" +line.getBuffer()+ "\n");
+
+        if (line.getBuffer().equalsIgnoreCase("quit") || line.getBuffer().equalsIgnoreCase("exit")) {
+            break;
+        }
+    }
+  }
+}
+
+h3. CompleteOperation
+
+<p/>
+The object that is sent with every registered Completion object is <a href="https://github.com/jreadline/jreadline/blob/master/src/main/java/org/jboss/jreadline/complete/CompleteOperation.java">CompletionOperation</a>:
+* buffer: is the current line when the user pressed 'tab'
+* cursor: the position of the cursor
+* offset: set by the programmer if JReadline should 'chop off' some of the buffer when doing completion. Set it to the same value as cursor to keep the buffer unchanged.
+* completionCandidates: added by the programmer if the buffer match this completion.
+
+
+

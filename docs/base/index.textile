@@ -5,6 +5,8 @@ index: 0
 ---
 
 h1. Getting started
+
+<br/>
   
 Since JReadline is created to be extended and used by other applications it do not do much on its own. However, it is very easy to get started with a simple application. Here is a very short code that will start JReadline:
 
@@ -41,5 +43,18 @@ bc(prettyprint linenums).. dependencies {
     compile group: 'org.jboss.jreadline', name: 'jreadline', version: '0.+'
 }
 
+h3. Interact with JReadline
 
+It is very easy to get up and running using JReadline as shown in the example above. When Console.read(..) is called it will not return until the user has pressed 'Enter' or the input stream is closed. Everything the user types is returned in a <br/>
+<a href="https://github.com/jreadline/jreadline/blob/master/src/main/java/org/jboss/jreadline/console/ConsoleOutput.java">ConsoleOutput</a> object:
+* buffer: user input
+* stdOut: if any redirect has been used prior, the std output is stored here
+* stdErr: if any redirect has been used prior, the std error is stored here
+* redirectOrPipe: if either piping or redirecting is used, this is set to true.
+
+<br/>
+
+h3. Piping and Redirecting
+
+JReadline supports piping and redirecting similar to who it works in various Unix shells. Read more <a href="/docs/base/redirection.html">here</a>.
 

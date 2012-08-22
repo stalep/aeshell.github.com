@@ -1,0 +1,8 @@
+---
+layout: base
+title: Online
+author: Ståle W. Pedersen
+tags: [ website, announcement]
+---
+
+We're finally online with the help of <a href="http://awestruct.org/">awestruct</a>. More info/docs to come in the near future...

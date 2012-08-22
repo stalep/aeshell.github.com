@@ -6,6 +6,7 @@ layout: base
   .span8
     .page-header
       %h3 JReadline
+      %br
       %p JReadline is a Java library that provides an API which allow the programmer to write command-based programs in a terminal-independent manner. JReadline support most GNU Readline features.
 
     .step
@@ -31,6 +32,18 @@ layout: base
 
   -#.span4
     -#.hero-unit
+      -#%h2 News
+      -#%p
+      -#- for post in site.posts
+        -#%h3
+          -#= post.date.strftime( '%d %B %Y' )
+          -#,
+          -#= post.title
+        -#.content
+          -#= summarize(html_to_text(post.content), 50)
+        -#%p
+
+
       -#%p
         -#This site is created with
         -#%a{:href=>'http://awestruct.org'} awestruct
@@ -49,7 +62,14 @@ layout: base
   .span8
     %section
       %h2 News
-      %span yay, we're online with the help of 
-      %a{:href=>'http://awestruct.org'} awestruct 
-      %span . More info/docs to come in the near future...
+      %p
+      - for post in site.posts
+        %h3
+          = post.date.strftime( '%d %B %Y' )
+          ,
+          = post.title
+        .content
+          = post.content
+        %p
+
 
