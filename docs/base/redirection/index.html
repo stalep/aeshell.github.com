@@ -80,27 +80,39 @@
       </ul>
     </div>
     <div class='span10'>
-      <h1>Getting started</h1>
+      <h1>Redirection</h1>
+<p/>
+<p>Redirection is a function common to most command-line interpreters, including the various Unix shells that can redirect standard streams to user-specified locations.<br />
+Redirection in JReadline try to emulate how it works in most Unix shells.</p>
 <p><br/></p>
-<p>Since JReadline is created to be extended and used by other applications it do not do much on its own. However, it is very easy to get started with a simple application. Here is a very short code that will start JReadline:</p>
-<pre class="prettyprint linenums"><code class="prettyprint linenums">&#x000A;public class Example {&#x000A;  public static void main(String[] args) throws java.io.IOException {&#x000A;    org.jboss.jreadline.console.Console console = new org.jboss.jreadline.console.Console();</code>&#x000A;&#x000A;<code class="prettyprint linenums">    org.jboss.jreadline.console.ConsoleOutput line;&#x000A;    while ((line = console.read("&gt; ")) != null) {&#x000A;        console.pushToConsole("======&gt;\"" +line.getBuffer()+ "\n");</code>&#x000A;&#x000A;<code class="prettyprint linenums">        if (line.getBuffer().equalsIgnoreCase("quit") || line.getBuffer().equalsIgnoreCase("exit")) {&#x000A;            break;&#x000A;        }&#x000A;    }&#x000A;  }&#x000A;}</code></pre>
-<h3>Obtain JReadline</h3>
-<p>The easiest way to get JReadline is with <a href="http://www.apache.org/maven">Maven</a>. Add a dependecy like:</p>
-<pre class="prettyprint linenums"><code class="prettyprint linenums">&lt;dependency&gt;&#x000A;    &lt;groupId&gt;org.jboss.jreadline&lt;/groupId&gt;&#x000A;    &lt;artifactId&gt;jreadline&lt;/artifactId&gt;&#x000A;    &lt;version&gt;${version.jreadline}&lt;/version&gt;&#x000A;&lt;/dependency&gt;</code></pre>
-<p>Using <a href="http://www.gradle.org/">Gradle</a>:</p>
-<pre class="prettyprint linenums"><code class="prettyprint linenums">dependencies {&#x000A;    compile group: 'org.jboss.jreadline', name: 'jreadline', version: '0.+'&#x000A;}</code></pre>
-<h3>Interact with JReadline</h3>
-<p>It is very easy to get up and running using JReadline as shown in the example above. When Console.read(..) is called it will not return until the user has pressed &#8216;Enter&#8217; or the input stream is closed. Everything the user types is returned in a <br/>
-<a href="https://github.com/jreadline/jreadline/blob/master/src/main/java/org/jboss/jreadline/console/ConsoleOutput.java">ConsoleOutput</a> object:</p>
-<ul>
-	<li>buffer: user input</li>
-	<li>stdOut: if any redirect has been used prior, the std output is stored here</li>
-	<li>stdErr: if any redirect has been used prior, the std error is stored here</li>
-	<li>redirectOrPipe: if either piping or redirecting is used, this is set to true.</li>
-</ul>
-<p><br/></p>
-<h3>Piping and Redirecting</h3>
-<p>JReadline supports piping and redirecting similar to who it works in various Unix shells. Read more <a href="/docs/base/redirection.html">here</a>.</p>
+<h3>Redirecting standard input and standard output</h3>
+<p/>
+<p>To execute <em>command1</em> and place the output in <em>file1</em>:<br />
+<code>command1 &gt; file1</code><br />
+This will overwrite any existing data in <em>file1</em>.<br />
+<br/>
+To append output to the end of the file, use &gt;&gt;:<br />
+<code>command1 &gt;&gt; file1</code><br />
+<br/>
+Using:<br />
+<code>command1 &lt; file1</code><br />
+executes <em>command1</em>, with <em>file1</em> as the source of input (instead of the keyboard).<br />
+<br/>
+<code>command1 &lt; infile &gt; outfile</code><br />
+combines the two: <em>command1</em> reads from <em>infile</em> and writes to <em>outfile</em>.<br />
+<br/></p>
+<h3>Piping</h3>
+<p/>
+<p>Programs can be run together such that one program reads the output from another with no need for an explicit intermediate file:<br />
+<code>command1 | command2</code><br />
+executes <em>command1</em>, using its output as the input for <em>command2</em>.<br />
+<br/></p>
+<h3>How this works in JReadline</h3>
+<p/>
+<p>The current implementation of JReadline solves redirection and piping fairly simple. When the user press &#8216;Enter&#8217; the line is parsed and if either redirect or pipe is found the line will be broken down in pieces. <br />
+In this example: <code>command1 &gt; file1</code> JReadline will split the line up so that only <em>command1</em> is returned in ConsoleOutput.buffer with ConsoleOutput.redirectOrPipe set to true.<br />
+The output from <em>command1</em> will be stored in an internal buffer and when <em>Console.read(..)</em> is called again <code>&gt; file1</code> will be processed.<br />
+The same logic is used when pipeline is used. This differ from several Unix shells that&#8217;s able to run several commands in parallel. JReadline run the commands in sequence.</p>
     </div>
   </div>
 </div>

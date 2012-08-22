@@ -80,27 +80,20 @@
       </ul>
     </div>
     <div class='span10'>
-      <h1>Getting started</h1>
+      <h1>Completion</h1>
 <p><br/></p>
-<p>Since JReadline is created to be extended and used by other applications it do not do much on its own. However, it is very easy to get started with a simple application. Here is a very short code that will start JReadline:</p>
-<pre class="prettyprint linenums"><code class="prettyprint linenums">&#x000A;public class Example {&#x000A;  public static void main(String[] args) throws java.io.IOException {&#x000A;    org.jboss.jreadline.console.Console console = new org.jboss.jreadline.console.Console();</code>&#x000A;&#x000A;<code class="prettyprint linenums">    org.jboss.jreadline.console.ConsoleOutput line;&#x000A;    while ((line = console.read("&gt; ")) != null) {&#x000A;        console.pushToConsole("======&gt;\"" +line.getBuffer()+ "\n");</code>&#x000A;&#x000A;<code class="prettyprint linenums">        if (line.getBuffer().equalsIgnoreCase("quit") || line.getBuffer().equalsIgnoreCase("exit")) {&#x000A;            break;&#x000A;        }&#x000A;    }&#x000A;  }&#x000A;}</code></pre>
-<h3>Obtain JReadline</h3>
-<p>The easiest way to get JReadline is with <a href="http://www.apache.org/maven">Maven</a>. Add a dependecy like:</p>
-<pre class="prettyprint linenums"><code class="prettyprint linenums">&lt;dependency&gt;&#x000A;    &lt;groupId&gt;org.jboss.jreadline&lt;/groupId&gt;&#x000A;    &lt;artifactId&gt;jreadline&lt;/artifactId&gt;&#x000A;    &lt;version&gt;${version.jreadline}&lt;/version&gt;&#x000A;&lt;/dependency&gt;</code></pre>
-<p>Using <a href="http://www.gradle.org/">Gradle</a>:</p>
-<pre class="prettyprint linenums"><code class="prettyprint linenums">dependencies {&#x000A;    compile group: 'org.jboss.jreadline', name: 'jreadline', version: '0.+'&#x000A;}</code></pre>
-<h3>Interact with JReadline</h3>
-<p>It is very easy to get up and running using JReadline as shown in the example above. When Console.read(..) is called it will not return until the user has pressed &#8216;Enter&#8217; or the input stream is closed. Everything the user types is returned in a <br/>
-<a href="https://github.com/jreadline/jreadline/blob/master/src/main/java/org/jboss/jreadline/console/ConsoleOutput.java">ConsoleOutput</a> object:</p>
+<p>JReadline provide a simple <span class="caps">API</span> to connect commands to its tab-completion list. The only thing thats needed is to implement the <a href="https://github.com/jreadline/jreadline/blob/master/src/main/java/org/jboss/jreadline/complete/Completion.java">Completion</a> interface and attach it to <a href="https://github.com/jreadline/jreadline/blob/master/src/main/java/org/jboss/jreadline/console/Console.java">Console</a> with the method <em>addCompletion(Completion)</em> or <em>addCompletions(List<Completion> completionList)</em>.</p>
+<p>A simple Example:</p>
+<pre class="prettyprint linenums"><code class="prettyprint linenums">&#x000A;import org.jboss.jreadline.complete.*;&#x000A;import org.jboss.jreadline.console.*;</code>&#x000A;&#x000A;<code class="prettyprint linenums">public class Example {&#x000A;  public static void main(String[] args) throws java.io.IOException {&#x000A;    Console console = new Console();</code>&#x000A;&#x000A;<code class="prettyprint linenums">    Completion completer = new Completion() {&#x000A;      @Override&#x000A;      public void complete(CompleteOperation co) {&#x000A;	// very simple completor&#x000A;        // if &lt;tab&gt; is pressed when the buffer is 'fo' or 'foo' it will&#x000A;        // be completed to 'foobar'&#x000A;	if(co.getBuffer().equals("fo") || co.getBuffer().equals("foo"))&#x000A;          co.addCompletionCandidate("foobar");&#x000A;      }&#x000A;    };&#x000A;    console.addCompletion(completer);</code>&#x000A;&#x000A;<code class="prettyprint linenums">    ConsoleOutput line;&#x000A;    while ((line = console.read("&gt; ")) != null) {&#x000A;        console.pushToConsole("======&gt;\"" +line.getBuffer()+ "\n");</code>&#x000A;&#x000A;<code class="prettyprint linenums">        if (line.getBuffer().equalsIgnoreCase("quit") || line.getBuffer().equalsIgnoreCase("exit")) {&#x000A;            break;&#x000A;        }&#x000A;    }&#x000A;  }&#x000A;}</code></pre>
+<h3>CompleteOperation</h3>
+<p/>
+<p>The object that is sent with every registered Completion object is <a href="https://github.com/jreadline/jreadline/blob/master/src/main/java/org/jboss/jreadline/complete/CompleteOperation.java">CompletionOperation</a>:</p>
 <ul>
-	<li>buffer: user input</li>
-	<li>stdOut: if any redirect has been used prior, the std output is stored here</li>
-	<li>stdErr: if any redirect has been used prior, the std error is stored here</li>
-	<li>redirectOrPipe: if either piping or redirecting is used, this is set to true.</li>
+	<li>buffer: is the current line when the user pressed &#8216;tab&#8217;</li>
+	<li>cursor: the position of the cursor</li>
+	<li>offset: set by the programmer if JReadline should &#8216;chop off&#8217; some of the buffer when doing completion. Set it to the same value as cursor to keep the buffer unchanged.</li>
+	<li>completionCandidates: added by the programmer if the buffer match this completion.</li>
 </ul>
-<p><br/></p>
-<h3>Piping and Redirecting</h3>
-<p>JReadline supports piping and redirecting similar to who it works in various Unix shells. Read more <a href="/docs/base/redirection.html">here</a>.</p>
     </div>
   </div>
 </div>
