@@ -3,7 +3,7 @@ layout: base
 ---
 
 .row
-  .span8
+  .span7
     .page-header
       %h3 JReadline
       %br
@@ -30,10 +30,18 @@ layout: base
       -#%h2 some headling2 alskdfjaølj 
       -#%p some text....
 
-  -#.span4
-    -#.hero-unit
-      -#%h2 News
-      -#%p
+  .span5
+    .hero-unit
+      %h2 Latest Release
+      %p <b>Version 0.19: </b>
+      %lu
+        %li Extensions API
+        %li Better ANSI API
+        %li Initial redirect and pipeline functionality
+        %li Added standard error stream
+        %li Various bug fixes
+      %p
+      %p <a href="/docs/base/">Grab</a> it while its hot!
       -#- for post in site.posts
         -#%h3
           -#= post.date.strftime( '%d %B %Y' )

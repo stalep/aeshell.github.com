@@ -8,7 +8,7 @@ h1. Completion
 
 <br/>
 
-JReadline provide a simple API to connect commands to its tab-completion list. The only thing thats needed is to implement the <a href="https://github.com/jreadline/jreadline/blob/master/src/main/java/org/jboss/jreadline/complete/Completion.java">Completion</a> interface and attach it to <a href="https://github.com/jreadline/jreadline/blob/master/src/main/java/org/jboss/jreadline/console/Console.java">Console</a> with the method _addCompletion(Completion)_ or _addCompletions(List<Completion> completionList)_.
+JReadline provide a simple API to connect commands to its tab-completion list. The only thing thats needed is to implement the <a href="https://github.com/jreadline/jreadline/blob/master/src/main/java/org/jboss/jreadline/complete/Completion.java">Completion</a> interface and attach it to <a href="https://github.com/jreadline/jreadline/blob/master/src/main/java/org/jboss/jreadline/console/Console.java">Console</a> with the method <kbd>addCompletion(Completion)</kbd> or <kbd>addCompletions(List<Completion> completionList)</kbd>.
 
 A simple Example:
   
@@ -34,12 +34,13 @@ public class Example {
 
     ConsoleOutput line;
     while ((line = console.read("> ")) != null) {
-        console.pushToConsole("======>\"" +line.getBuffer()+ "\n");
+        console.pushToStdOut("======>\"" +line.getBuffer()+ "\n");
 
         if (line.getBuffer().equalsIgnoreCase("quit") || line.getBuffer().equalsIgnoreCase("exit")) {
             break;
         }
     }
+    console.stop();
   }
 }
 

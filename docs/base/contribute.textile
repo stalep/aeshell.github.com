@@ -1,12 +1,32 @@
 ---
 layout: docs
-title: Contribute
+title: Get Involved
 index: 2
 ---
 
-h1. Contribute
+h1. Get Involved
 
-- more to come...
+<p/>
+There are many ways of getting involved with JReadline and contribute to the project. We are glad for any involvement either it is finding a bug and report it, contact us on irc or contribute code on any of our modules.
+<br/>
 
-h3. 
+h2. Source Repository
+
+<p/>
+All the JReadline source code is managed using git and is hosted at github.com under the <a href="https://github.com/jreadline/">jreadline organization</a>.
+Just fork the project, code, commit and send a pull request.
+<br/>
+
+h2. Issue Tracker
+
+<p/>
+JReadline use the issue-tracking system at github.com
+* <a href="https://github.com/jreadline/jreadline/issues?state=open">JReadline issue tracker</a>
+* <a href="https://github.com/jreadline/jreadline-extensions/issues">JReadline-extensions issue tracker</a>
+<br/>
+
+h2. Chat
+
+<p/>
+Please join us in the #jreadline channel on irc.freenode.net to talk about JReadline.
 

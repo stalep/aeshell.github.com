@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: Getting started
-index: 0
+index: 1
 ---
 
 h1. Getting started
@@ -17,17 +17,19 @@ public class Example {
 
     org.jboss.jreadline.console.ConsoleOutput line;
     while ((line = console.read("> ")) != null) {
-        console.pushToConsole("======>\"" +line.getBuffer()+ "\n");
+        console.pushToStdOut("======>\"" +line.getBuffer()+ "\n");
 
         if (line.getBuffer().equalsIgnoreCase("quit") || line.getBuffer().equalsIgnoreCase("exit")) {
             break;
         }
     }
   }
+  console.stop();
 }
 
 h3. Obtain JReadline
 
+<p/>
 The easiest way to get JReadline is with "Maven":http://www.apache.org/maven. Add a dependecy like:
 
 bc(prettyprint linenums).. <dependency>
@@ -45,16 +47,22 @@ bc(prettyprint linenums).. dependencies {
 
 h3. Interact with JReadline
 
+<p/>
 It is very easy to get up and running using JReadline as shown in the example above. When Console.read(..) is called it will not return until the user has pressed 'Enter' or the input stream is closed. Everything the user types is returned in a <br/>
 <a href="https://github.com/jreadline/jreadline/blob/master/src/main/java/org/jboss/jreadline/console/ConsoleOutput.java">ConsoleOutput</a> object:
 * buffer: user input
 * stdOut: if any redirect has been used prior, the std output is stored here
 * stdErr: if any redirect has been used prior, the std error is stored here
 * redirectOrPipe: if either piping or redirecting is used, this is set to true.
-
 <br/>
 
 h3. Piping and Redirecting
 
+<p/>
 JReadline supports piping and redirecting similar to who it works in various Unix shells. Read more <a href="/docs/base/redirection.html">here</a>.
+<br/>
 
+h3. Settings
+
+<p/>
+In addition to the settings a user can define in the <a href="/docs/base/editingmode">init file</a> the developer can also define a lot of settings in JReadline. Read more about settings <a href="/docs/base/settings">here</a>.

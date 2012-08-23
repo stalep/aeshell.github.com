@@ -1,0 +1,8 @@
+---
+layout: base
+title: Even More Documentation
+author: Ståle W. Pedersen
+tags: [ website, announcement, documentation ]
+---
+
+We have added a <a href="/docs/base/settings">settings</a> and a <a href="/docs/base/utils/">utils</a> section and updated some of the other documentation sections. More to come after the release of 0.20 which will include more complete pipeline/redirection support + support for filenames/paths which contain spaces when doing completion/pipeline/redirection.
