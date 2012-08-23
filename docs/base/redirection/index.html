@@ -28,7 +28,7 @@
           <a class='brand' href='http://jreadline.github.com'>JReadline</a>
           <ul class='nav'>
             <li>
-              <a href='/docs/index.html'>Documentation</a>
+              <a href='/docs/'>Documentation</a>
             </li>
             <li>
               <a href='/extensions/index.html'>Extensions</a>
@@ -60,22 +60,28 @@
       <ul class='nav nav-list'>
         <li class='nav-header'>JReadline Base</li>
         <li>
-          <a href='/docs/base/contribute/'>Contribute</a>
+          <a href='/docs/base/settings/'>Settings</a>
         </li>
         <li>
-          <a href='/docs/base/editingmode/'>Editing</a>
-        </li>
-        <li>
-          <a href='/docs/base/'>Getting started</a>
+          <a href='/docs/base/contribute/'>Get Involved</a>
         </li>
         <li>
           <a href='/docs/base/faq/'>FAQ</a>
         </li>
         <li>
-          <a href='/docs/base/completion/'>Completion</a>
+          <a href='/docs/base/'>Getting started</a>
+        </li>
+        <li>
+          <a href='/docs/base/utils/'>Utils</a>
+        </li>
+        <li>
+          <a href='/docs/base/editingmode/'>Editing</a>
         </li>
         <li>
           <a href='/docs/base/redirection/'>Redirection</a>
+        </li>
+        <li>
+          <a href='/docs/base/completion/'>Completion</a>
         </li>
       </ul>
     </div>
@@ -87,31 +93,31 @@ Redirection in JReadline try to emulate how it works in most Unix shells.</p>
 <p><br/></p>
 <h3>Redirecting standard input and standard output</h3>
 <p/>
-<p>To execute <em>command1</em> and place the output in <em>file1</em>:<br />
+<p>To execute <kbd>command1</kbd> and place the output in <kbd>file1</kbd>:<br />
 <code>command1 &gt; file1</code><br />
-This will overwrite any existing data in <em>file1</em>.<br />
+This will overwrite any existing data in <kbd>file1</kbd>.<br />
 <br/>
 To append output to the end of the file, use &gt;&gt;:<br />
 <code>command1 &gt;&gt; file1</code><br />
 <br/>
 Using:<br />
 <code>command1 &lt; file1</code><br />
-executes <em>command1</em>, with <em>file1</em> as the source of input (instead of the keyboard).<br />
+executes <kbd>command1</kbd>, with <kbd>file1</kbd> as the source of input (instead of the keyboard).<br />
 <br/>
 <code>command1 &lt; infile &gt; outfile</code><br />
-combines the two: <em>command1</em> reads from <em>infile</em> and writes to <em>outfile</em>.<br />
+combines the two: <kbd>command1</kbd> reads from <kbd>infile</kbd> and writes to <kbd>outfile</kbd>.<br />
 <br/></p>
 <h3>Piping</h3>
 <p/>
 <p>Programs can be run together such that one program reads the output from another with no need for an explicit intermediate file:<br />
 <code>command1 | command2</code><br />
-executes <em>command1</em>, using its output as the input for <em>command2</em>.<br />
+executes <kbd>command1</kbd>, using its output as the input for <kbd>command2</kbd>.<br />
 <br/></p>
 <h3>How this works in JReadline</h3>
 <p/>
 <p>The current implementation of JReadline solves redirection and piping fairly simple. When the user press &#8216;Enter&#8217; the line is parsed and if either redirect or pipe is found the line will be broken down in pieces. <br />
-In this example: <code>command1 &gt; file1</code> JReadline will split the line up so that only <em>command1</em> is returned in ConsoleOutput.buffer with ConsoleOutput.redirectOrPipe set to true.<br />
-The output from <em>command1</em> will be stored in an internal buffer and when <em>Console.read(..)</em> is called again <code>&gt; file1</code> will be processed.<br />
+In this example: <code>command1 &gt; file1</code> JReadline will split the line up so that only <kbd>command1</kbd> is returned in ConsoleOutput.buffer with ConsoleOutput.redirectOrPipe set to true.<br />
+The output from <kbd>command1</kbd> will be stored in an internal buffer and when <kbd>Console.read(..)</kbd> is called again <code>&gt; file1</code> will be processed.<br />
 The same logic is used when pipeline is used. This differ from several Unix shells that&#8217;s able to run several commands in parallel. JReadline run the commands in sequence.</p>
     </div>
   </div>
