@@ -11,7 +11,7 @@
         }
       /*]]>*/
     </style>
-    <link href='http://jreadline.github.com/stylesheets/styles.css' rel='stylesheet' type='text/css' />
+    <link href='http://localhost:4242/stylesheets/styles.css' rel='stylesheet' type='text/css' />
     <!--[if lt IE 9]>
       <script src='//html5shim.googlecode.com/svn/trunk/html5.js' type='text/javascript'></script>
     <![endif]-->
@@ -25,7 +25,7 @@
               <img alt='Fork me on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png' style='position:absolute;top:0;right:0;border:0;' />
             </a>
           </div>
-          <a class='brand' href='http://jreadline.github.com'>JReadline</a>
+          <a class='brand' href='http://localhost:4242'>JReadline</a>
           <ul class='nav'>
             <li>
               <a href='/docs/'>Documentation</a>
@@ -60,28 +60,31 @@
       <ul class='nav nav-list'>
         <li class='nav-header'>JReadline Base</li>
         <li>
-          <a href='/docs/base/redirection/'>Redirection</a>
-        </li>
-        <li>
-          <a href='/docs/base/faq/'>FAQ</a>
-        </li>
-        <li>
-          <a href='/docs/base/contribute/'>Get Involved</a>
+          <a href='/docs/base/editingmode/'>Editing</a>
         </li>
         <li>
           <a href='/docs/base/completion/'>Completion</a>
         </li>
         <li>
-          <a href='/docs/base/utils/'>Utils</a>
+          <a href='/docs/base/alias/'>Aliases</a>
+        </li>
+        <li>
+          <a href='/docs/base/contribute/'>Get Involved</a>
         </li>
         <li>
           <a href='/docs/base/'>Getting started</a>
         </li>
         <li>
+          <a href='/docs/base/faq/'>FAQ</a>
+        </li>
+        <li>
+          <a href='/docs/base/redirection/'>Redirection</a>
+        </li>
+        <li>
           <a href='/docs/base/settings/'>Settings</a>
         </li>
         <li>
-          <a href='/docs/base/editingmode/'>Editing</a>
+          <a href='/docs/base/utils/'>Utils</a>
         </li>
       </ul>
     </div>
@@ -94,6 +97,8 @@
 <p/>
 <p>By changing properties in the <a href="https://github.com/jreadline/jreadline/blob/master/src/main/java/org/jboss/jreadline/console/settings/Settings.java">System</a> object it is possibe to change almost every variable that is used during initialization of JReadline. Some examples:</p>
 <dl compact>
+<dt><kbd>name</kbd><br />
+<dd>Specify the name that is used when jreadline report errors/msgs. Default is &#8220;jreadline&#8221;.<br />
 <dt><kbd>editMode</kbd><br />
 <dd>Specify which editing mode JReadline should start with. If not specified Emacs-mode is default. However, this is setting is overwritten if the user has specificed something else in their init file (<kbd>inputrc</kbd>). Read more <a href="/docs/base/editingmode">here</a>.<br />
 <dt><kbd>historyFile</kbd><br />
