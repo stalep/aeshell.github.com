@@ -7,7 +7,7 @@ layout: base
     .page-header
       %h3 JReadline
       %br
-      %p JReadline is a Java library that provides an API which allow the programmer to write command-based programs in a terminal-independent manner. JReadline support most GNU Readline features.
+      %p JReadline is a Java library that provides an API which allow the programmer to write command-based programs in a terminal-independent manner. JReadline support most GNU Readline features and many different terminal operations.
 
     .step
       %h2 Features:
@@ -21,6 +21,7 @@ layout: base
         %li Emacs and Vi editing mode
         %li Support POSIX OS's and Windows
         %li Support out and error streams
+        %li Aliases
         %li Redirect
         %li.last Pipeline
 
@@ -33,12 +34,11 @@ layout: base
   .span5
     .hero-unit
       %h2 Latest Release
-      %p <b>Version 0.19: </b>
+      %p <b>Version 0.20: </b>
       %lu
-        %li Extensions API
-        %li Better ANSI API
-        %li Initial redirect and pipeline functionality
-        %li Added standard error stream
+        %li Rewritten redirect and pipelines
+        %li Aliasing
+        %li Give the cli a name (instead of jreadline)
         %li Various bug fixes
       %p
       %p <a href="/docs/base/">Grab</a> it while its hot!

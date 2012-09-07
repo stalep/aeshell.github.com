@@ -16,6 +16,8 @@ h3. The Settings object
 By changing properties in the <a href="https://github.com/jreadline/jreadline/blob/master/src/main/java/org/jboss/jreadline/console/settings/Settings.java">System</a> object it is possibe to change almost every variable that is used during initialization of JReadline. Some examples:
 
 <dl compact>
+<dt><kbd>name</kbd>
+<dd>Specify the name that is used when jreadline report errors/msgs. Default is "jreadline".
 <dt><kbd>editMode</kbd>
 <dd>Specify which editing mode JReadline should start with. If not specified Emacs-mode is default. However, this is setting is overwritten if the user has specificed something else in their init file (<kbd>inputrc</kbd>). Read more <a href="/docs/base/editingmode">here</a>.
 <dt><kbd>historyFile</kbd>

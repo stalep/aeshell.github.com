@@ -1,0 +1,9 @@
+---
+layout: base
+title: 0.20 Released!
+author: Ståle W. Pedersen
+tags: [ website, announcement, documentation ]
+---
+
+We finally released 0.20 which include a rewrite of <a href="/docs/base/redirection/">redirection and pipelines</a>, <a href="/docs/base/alias">aliases</a> and the possiblity to specify the name of the cli.
+Redirection and pipelines also support filenames with spaces and escaped spaces. Naming the cli is now possible via the Settings object. Aliasing works similar to aliasing in bash.
