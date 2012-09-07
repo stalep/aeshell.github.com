@@ -92,14 +92,16 @@
             </ul>
           </div>
           <div class='span10'>
-            <h1><span class="caps">FAQ</span></h1>
-            <p><br/></p>
-            <h3>How is JReadline different from Jline1/2?</h3>
-            <p>The JReadline started out of some of the shortcomings of Jline and its <span class="caps">API</span> is somewhat similar for getting output from console. Completion/Settings/etc is howevery different but changing from Jline to JReadline should not require much work.</p>
-            <h3>I found an issue, where can I report it?</h3>
-            <p>Create an issue in the <a href="https://github.com/jreadline/jreadline/issues">issue tracker</a></p>
-            <h3>How can I contribute to JReadline?</h3>
-            <p>More generally, see <a href="/docs/contribute.html">this</a></p>
+            <h1>Aliases</h1>
+            <p/>
+            <p>JReadline provide alias functionality similar to Bash alias.</p>
+            <p>For those that do not know what aliases is, it allows a string to be substituted for a word when it is used as the first word of a simple command. JReadline maintains  a  list  of aliases  that  may  be set and unset with the <kbd>alias</kbd> and <kbd>unalias</kbd> commands.</p>
+            <p>JReadline always read a complete line of input before executing. Aliases are expanded when a command is read.<br />
+            <br/></p>
+            <h2>Set/Unset Aliases</h2>
+            <p/>
+            <p>Aliases are created with the <kbd>alias</kbd> command either in the shell or specified in a file thats read when jreadline starts. This file can be set in the <kbd>Settings</kbd> class. The format to define aliases is: <kbd>alias aliasname=&#8216;command -params&#8217;</kbd>. This is identical in a shell and file.</p>
+            <p>To remove an existing alias specify the name of the alias after the <kbd>unalias</kbd> command. eg: <kbd>unalias aliasname</kbd>.</p>
           </div>
         </div>
       </div>
