@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset='utf-8' />
-    <title>JReadline</title>
+    <title>Æsh</title>
     <meta content='width=device-width, initial-scale=1.0' name='viewport' />
     <style type='text/css'>
       /*<![CDATA[*/
@@ -11,7 +11,7 @@
         }
       /*]]>*/
     </style>
-    <link href='http://jreadline.github.com/stylesheets/styles.css' rel='stylesheet' type='text/css' />
+    <link href='http://aeshell.github.com/stylesheets/styles.css' rel='stylesheet' type='text/css' />
     <!--[if lt IE 9]>
       <script src='//html5shim.googlecode.com/svn/trunk/html5.js' type='text/javascript'></script>
     <![endif]-->
@@ -21,11 +21,11 @@
       <div class='navbar-inner'>
         <div class='container'>
           <div class='github-banner'>
-            <a href='https://github.com/jreadline/jreadline.github.com'>
+            <a href='https://github.com/aeshell/aeshell.github.com'>
               <img alt='Fork me on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png' style='position:absolute;top:0;right:0;border:0;' />
             </a>
           </div>
-          <a class='brand' href='http://jreadline.github.com'>JReadline</a>
+          <a class='brand' href='http://aeshell.github.com'>Æsh</a>
           <ul class='nav'>
             <li>
               <a href='/docs/'>Documentation</a>
@@ -34,7 +34,7 @@
               <a href='/extensions/index.html'>Extensions</a>
             </li>
             <li>
-              <a href='http://github.com/jreadline'>Source Code</a>
+              <a href='http://github.com/aeshell'>Source Code</a>
             </li>
             <li>
               <a href='/docs/base/contribute'>Contribute</a>
@@ -58,7 +58,13 @@
   <div class='row-fluid'>
     <div class='span2'>
       <ul class='nav nav-list'>
-        <li class='nav-header'>JReadline Base</li>
+        <li class='nav-header'>Æsh Base</li>
+        <li>
+          <a href='/docs/base/'>Getting started</a>
+        </li>
+        <li>
+          <a href='/docs/base/faq/'>FAQ</a>
+        </li>
         <li>
           <a href='/docs/base/completion/'>Completion</a>
         </li>
@@ -66,16 +72,7 @@
           <a href='/docs/base/redirection/'>Redirection</a>
         </li>
         <li>
-          <a href='/docs/base/contribute/'>Get Involved</a>
-        </li>
-        <li>
-          <a href='/docs/base/alias/'></a>
-        </li>
-        <li>
-          <a href='/docs/base/faq/'>FAQ</a>
-        </li>
-        <li>
-          <a href='/docs/base/settings/'>Settings</a>
+          <a href='/docs/base/utils/'>Utils</a>
         </li>
         <li>
           <a href='/docs/base/alias/'>Aliases</a>
@@ -84,22 +81,22 @@
           <a href='/docs/base/editingmode/'>Editing</a>
         </li>
         <li>
-          <a href='/docs/base/'>Getting started</a>
+          <a href='/docs/base/contribute/'>Get Involved</a>
         </li>
         <li>
-          <a href='/docs/base/utils/'>Utils</a>
+          <a href='/docs/base/settings/'>Settings</a>
         </li>
       </ul>
     </div>
     <div class='span10'>
       <h1>Editing</h1>
 <p><br/></p>
-<p>Similar to the <span class="caps">GNU</span> Readline library JReadline provides functions that allow users to edit command lines as they are typed in. JReadline har two different editing modes, Emacs and Vi. As with <span class="caps">GNU</span> Readline Emacs mode is default.<br />
-Features in JReadline includes functions to maintain a list of previously-entered command lines, to recall and perhaps reedit those lines, and perform csh-like history expansion on previous commands.<br />
+<p>Similar to the <span class="caps">GNU</span> Readline library Æsh provides functions that allow users to edit command lines as they are typed in. Æsh har two different editing modes, Emacs and Vi. As with <span class="caps">GNU</span> Readline Emacs mode is default.<br />
+Features in Æsh includes functions to maintain a list of previously-entered command lines, to recall and perhaps reedit those lines, and perform csh-like history expansion on previous commands.<br />
 <br/></p>
 <h3>Introduction to Line Editing</h3>
 <p/>
-<p>Often during an interactive session you type in a long line of text, only to notice that the first word on the line is misspelled. JReadline gives you a set of commands for manipulating the text as you type it in, allowing you to just fix your typo, and not forcing you to retype the majority of the line. Using these editing commands, you move the cursor to the place that needs correction, and delete or insert the text of the corrections. Then, when you are satisfied with the line, you simply press <kbd><span class="caps">RET</span></kbd>. You do not have to be at the end of the line to press <kbd><span class="caps">RET</span></kbd>; the entire line is accepted regardless of the location of the cursor within the line.</p>
+<p>Often during an interactive session you type in a long line of text, only to notice that the first word on the line is misspelled. Æsh gives you a set of commands for manipulating the text as you type it in, allowing you to just fix your typo, and not forcing you to retype the majority of the line. Using these editing commands, you move the cursor to the place that needs correction, and delete or insert the text of the corrections. Then, when you are satisfied with the line, you simply press <kbd><span class="caps">RET</span></kbd>. You do not have to be at the end of the line to press <kbd><span class="caps">RET</span></kbd>; the entire line is accepted regardless of the location of the cursor within the line.</p>
 <p>To describe the notation used to represent keystrokes, the text <kbd>C-k</kbd> is read as &#8216;Control-K&#8217; describes the character produced when the <kbd>k</kbd> key is pressed while the Control key is depressed. The text <kbd>M-k</kbd> is read as &#8216;Meta-K&#8217; and describes the character produced when the Meta key (if you have one) is pressed, and the <kbd>k</kbd> key is pressed. The Meta key is labeled <kbd><span class="caps">ALT</span></kbd> on many keyboards.<br />
 <br/></p>
 <h3>Essentials</h3>
@@ -141,37 +138,37 @@ empty line.<br />
 Word boundaries are the same as those used by <kbd>M-f</kbd>.</DL>
 <h3>Vi Commands</h3>
 <p/>
-<p>JReadline does not have a full set of <kbd>vi</kbd> editing functions, it does contain enough to allow simple editing of the line. JReadline vi mode behaves as specified in the <span class="caps">POSIX</span> standard.</p>
+<p>Æsh does not have a full set of <kbd>vi</kbd> editing functions, it does contain enough to allow simple editing of the line. Æsh vi mode behaves as specified in the <span class="caps">POSIX</span> standard.</p>
 <p>When you enter a line in <kbd>vi</kbd> mode, you are already placed in &#8216;insertion&#8217; mode, as if you had typed an <kbd>&#8216;i&#8217;</kbd>.  Pressing <kbd><span class="caps">ESC</span></kbd> switches you into `command&#8217; mode, where you can edit the text of the line with the standard <kbd>vi</kbd> movement keys, move to previous history lines with <kbd>&#8216;k&#8217;</kbd> and subsequent lines with <kbd>&#8216;j&#8217;</kbd>, and so forth.</p>
 <p>In order to switch interactively between <kbd>emacs</kbd> and <kbd>vi</kbd> editing modes, use the command <kbd>M-C-j</kbd> (bound to emacs-editing-mode when in <kbd>vi</kbd> mode and to vi-editing-mode in <kbd>emacs</kbd> mode). The Readline default is <kbd>emacs</kbd> mode.<br />
 <br/></p>
 <h3>Searching for Commands in History</h3>
 <p/>
-<p>JReadline provides commands for searching through the command history for lines containing a specified string. There are two search modes:  <EM>incremental</EM> and <EM>non-incremental</EM>.<br />
+<p>Æsh provides commands for searching through the command history for lines containing a specified string. There are two search modes:  <EM>incremental</EM> and <EM>non-incremental</EM>.<br />
 <P/></p>
-<p>Incremental searches begin before the user has finished typing the search string. As each character of the search string is typed, JReadline displays the next entry from the history matching the string typed so far. An incremental search requires only as many characters as needed to find the desired history entry.<br />
+<p>Incremental searches begin before the user has finished typing the search string. As each character of the search string is typed, Æsh displays the next entry from the history matching the string typed so far. An incremental search requires only as many characters as needed to find the desired history entry.<br />
 To search backward in the history for a particular string, type <kbd>C-r</kbd>. Typing <kbd>C-s</kbd> searches forward through the history. The characters present in the value of the <kbd>isearch-terminators</kbd> variable are used to <br />
 terminate an incremental search. If that variable has not been assigned a value, the <kbd><span class="caps">ESC</span></kbd> and <kbd>C-J</kbd> characters will terminate an incremental search. <kbd>C-g</kbd> will abort an incremental search and restore the original line. When the search is terminated, the history entry containing the search string becomes the current line.<br />
 <br/></p>
-<h3>JReadline Init File</h3>
+<h3>Æsh Init File</h3>
 <p/>
-<p>Although the JReadline library comes with a set of Emacs-like keybindings installed by default, it is possible to use a different set of keybindings.<br />
+<p>Although the Æsh library comes with a set of Emacs-like keybindings installed by default, it is possible to use a different set of keybindings.<br />
 Any user can customize programs that use Readline by putting commands in an <kbd>inputrc</kbd> file, conventionally in his home directory. The name of this file is taken from the value of the environment variable <kbd><span class="caps">INPUTRC</span></kbd>. If that variable is unset, the default is <kbd>~/.inputrc</kbd>.  If that file does not exist or cannot be read, the ultimate default is <kbd>/etc/inputrc</kbd>.</p>
 <p>It is also possible to change from the default Emacs-like key binding to use Vi line editing in the init file.<br />
 <br/></p>
-<h4>JReadline Init File Syntax</h4>
+<h4>Æsh Init File Syntax</h4>
 <p/>
-<p>JReadline only support a simple structure of the <span class="caps">GNU</span> Readline init file. The current implementation only support variable settings and key bindings outside of conditional constructs. Blank lines are ignored and lines beginning with a <kbd>#</kbd> are comments.</p>
+<p>Æsh only support a simple structure of the <span class="caps">GNU</span> Readline init file. The current implementation only support variable settings and key bindings outside of conditional constructs. Blank lines are ignored and lines beginning with a <kbd>#</kbd> are comments.</p>
 <h5>Variables</h5>
 <p>The syntax for setting variables is simple: <kbd>set variable value</kbd></p>
-<p>Current supported variable settings in JReadline:</p>
+<p>Current supported variable settings in Æsh:</p>
 <dl compact>
 <dt><kbd>editing-mode</kbd><br />
 <dd> The editing-mode variable controls which default set of key bindings is used. By default, Readline starts up in Emacs editing mode, where the keystrokes are most similar to Emacs. This variable can be set to either <kbd>emacs</kbd> or <kbd>vi</kbd>.<br />
 <dt><kbd>history-size</kbd><br />
 <dd> Set the maximum number of history entries saved in the history list. Max size is the same as the <kbd>java int</kbd> data type (2,147,483,647).<br />
 <dt><kbd>bell-style</kbd><br />
-<dd>Controls what happens when JReadline wants to ring the terminal bell. Currently JReadline never wants to ring the bell.<br />
+<dd>Controls what happens when Æsh wants to ring the terminal bell. Currently Æsh never wants to ring the bell.<br />
 <dt><kbd>disable-completion</kbd><br />
 <dd>If set to <kbd>On</kbd>, Readline will inhibit word completion. Completion characters will be inserted into the line as if they had been mapped to <kbd>self-insert</kbd>. The default is <kbd>off</kbd>.</dl>
 <h5>Key Bindings</h5>
@@ -186,7 +183,7 @@ Once you know the name of the command, simply place on a line in the init file t
 </div>
       <hr />
       <footer>
-        <p>&copy; JBoss by Red Hat 2012</p>
+        <p>&copy; Red Hat 2012</p>
       </footer>
     </div>
   </body>

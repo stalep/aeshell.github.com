@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset='utf-8' />
-    <title>JReadline</title>
+    <title>Æsh</title>
     <meta content='width=device-width, initial-scale=1.0' name='viewport' />
     <style type='text/css'>
       /*<![CDATA[*/
@@ -11,7 +11,7 @@
         }
       /*]]>*/
     </style>
-    <link href='http://jreadline.github.com/stylesheets/styles.css' rel='stylesheet' type='text/css' />
+    <link href='http://aeshell.github.com/stylesheets/styles.css' rel='stylesheet' type='text/css' />
     <!--[if lt IE 9]>
       <script src='//html5shim.googlecode.com/svn/trunk/html5.js' type='text/javascript'></script>
     <![endif]-->
@@ -21,11 +21,11 @@
       <div class='navbar-inner'>
         <div class='container'>
           <div class='github-banner'>
-            <a href='https://github.com/jreadline/jreadline.github.com'>
+            <a href='https://github.com/aeshell/aeshell.github.com'>
               <img alt='Fork me on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png' style='position:absolute;top:0;right:0;border:0;' />
             </a>
           </div>
-          <a class='brand' href='http://jreadline.github.com'>JReadline</a>
+          <a class='brand' href='http://aeshell.github.com'>Æsh</a>
           <ul class='nav'>
             <li>
               <a href='/docs/'>Documentation</a>
@@ -34,7 +34,7 @@
               <a href='/extensions/index.html'>Extensions</a>
             </li>
             <li>
-              <a href='http://github.com/jreadline'>Source Code</a>
+              <a href='http://github.com/aeshell'>Source Code</a>
             </li>
             <li>
               <a href='/docs/base/contribute'>Contribute</a>
@@ -58,7 +58,13 @@
   <div class='row-fluid'>
     <div class='span2'>
       <ul class='nav nav-list'>
-        <li class='nav-header'>JReadline Base</li>
+        <li class='nav-header'>Æsh Base</li>
+        <li>
+          <a href='/docs/base/'>Getting started</a>
+        </li>
+        <li>
+          <a href='/docs/base/faq/'>FAQ</a>
+        </li>
         <li>
           <a href='/docs/base/completion/'>Completion</a>
         </li>
@@ -66,16 +72,7 @@
           <a href='/docs/base/redirection/'>Redirection</a>
         </li>
         <li>
-          <a href='/docs/base/contribute/'>Get Involved</a>
-        </li>
-        <li>
-          <a href='/docs/base/alias/'></a>
-        </li>
-        <li>
-          <a href='/docs/base/faq/'>FAQ</a>
-        </li>
-        <li>
-          <a href='/docs/base/settings/'>Settings</a>
+          <a href='/docs/base/utils/'>Utils</a>
         </li>
         <li>
           <a href='/docs/base/alias/'>Aliases</a>
@@ -84,28 +81,28 @@
           <a href='/docs/base/editingmode/'>Editing</a>
         </li>
         <li>
-          <a href='/docs/base/'>Getting started</a>
+          <a href='/docs/base/contribute/'>Get Involved</a>
         </li>
         <li>
-          <a href='/docs/base/utils/'>Utils</a>
+          <a href='/docs/base/settings/'>Settings</a>
         </li>
       </ul>
     </div>
     <div class='span10'>
       <h1>Getting started</h1>
 <p><br/></p>
-<p>Since JReadline is created to be extended and used by other applications it do not do much on its own. However, it is very easy to get started with a simple application. Here is a very short code that will start JReadline:</p>
-<pre class="prettyprint linenums"><code class="prettyprint linenums">&#x000A;public class Example {&#x000A;  public static void main(String[] args) throws java.io.IOException {&#x000A;    org.jboss.jreadline.console.Console console = new org.jboss.jreadline.console.Console();</code>&#x000A;&#x000A;<code class="prettyprint linenums">    org.jboss.jreadline.console.ConsoleOutput line;&#x000A;    while ((line = console.read("&gt; ")) != null) {&#x000A;        console.pushToStdOut("======&gt;\"" +line.getBuffer()+ "\n");</code>&#x000A;&#x000A;<code class="prettyprint linenums">        if (line.getBuffer().equalsIgnoreCase("quit") || line.getBuffer().equalsIgnoreCase("exit")) {&#x000A;            break;&#x000A;        }&#x000A;    }&#x000A;  }&#x000A;  console.stop();&#x000A;}</code></pre>
-<h3>Obtain JReadline</h3>
+<p>Since Æsh is created to be extended and used by other applications it do not do much on its own. However, it is very easy to get started with a simple application. Here is a very short code that will start Æsh:</p>
+<pre class="prettyprint linenums"><code class="prettyprint linenums">&#x000A;public class Example {&#x000A;  public static void main(String[] args) throws java.io.IOException {&#x000A;    org.jboss.aesh.console.Console console = new org.jboss.aesh.console.Console();</code>&#x000A;&#x000A;<code class="prettyprint linenums">    org.jboss.aesh.console.ConsoleOutput line;&#x000A;    while ((line = console.read("&gt; ")) != null) {&#x000A;        console.pushToStdOut("======&gt;\"" +line.getBuffer()+ "\n");</code>&#x000A;&#x000A;<code class="prettyprint linenums">        if (line.getBuffer().equalsIgnoreCase("quit") || line.getBuffer().equalsIgnoreCase("exit")) {&#x000A;            break;&#x000A;        }&#x000A;    }&#x000A;  }&#x000A;  console.stop();&#x000A;}</code></pre>
+<h3>Obtain Æsh</h3>
 <p/>
-<p>The easiest way to get JReadline is with <a href="http://www.apache.org/maven">Maven</a>. Add a dependecy like:</p>
-<pre class="prettyprint linenums"><code class="prettyprint linenums">&lt;dependency&gt;&#x000A;    &lt;groupId&gt;org.jboss.jreadline&lt;/groupId&gt;&#x000A;    &lt;artifactId&gt;jreadline&lt;/artifactId&gt;&#x000A;    &lt;version&gt;${version.jreadline}&lt;/version&gt;&#x000A;&lt;/dependency&gt;</code></pre>
+<p>The easiest way to get Æsh is with <a href="http://www.apache.org/maven">Maven</a>. Add a dependecy like:</p>
+<pre class="prettyprint linenums"><code class="prettyprint linenums">&lt;dependency&gt;&#x000A;    &lt;groupId&gt;org.jboss.aesh&lt;/groupId&gt;&#x000A;    &lt;artifactId&gt;aesh&lt;/artifactId&gt;&#x000A;    &lt;version&gt;${version.aesh}&lt;/version&gt;&#x000A;&lt;/dependency&gt;</code></pre>
 <p>Using <a href="http://www.gradle.org/">Gradle</a>:</p>
-<pre class="prettyprint linenums"><code class="prettyprint linenums">dependencies {&#x000A;    compile group: 'org.jboss.jreadline', name: 'jreadline', version: '0.+'&#x000A;}</code></pre>
-<h3>Interact with JReadline</h3>
+<pre class="prettyprint linenums"><code class="prettyprint linenums">dependencies {&#x000A;    compile group: 'org.jboss.aesh', name: 'aesh', version: '0.+'&#x000A;}</code></pre>
+<h3>Interact with Æsh</h3>
 <p/>
-<p>It is very easy to get up and running using JReadline as shown in the example above. When Console.read(..) is called it will not return until the user has pressed &#8216;Enter&#8217; or the input stream is closed. Everything the user types is returned in a <br/>
-<a href="https://github.com/jreadline/jreadline/blob/master/src/main/java/org/jboss/jreadline/console/ConsoleOutput.java">ConsoleOutput</a> object:</p>
+<p>It is very easy to get up and running using Æsh as shown in the example above. When Console.read(..) is called it will not return until the user has pressed &#8216;Enter&#8217; or the input stream is closed. Everything the user types is returned in a <br/>
+<a href="https://github.com/aeshell/aesh/blob/master/src/main/java/org/jboss/aesh/console/ConsoleOutput.java">ConsoleOutput</a> object:</p>
 <ul>
 	<li>buffer: user input</li>
 	<li>stdOut: if any redirect has been used prior, the std output is stored here</li>
@@ -115,17 +112,17 @@
 </ul>
 <h3>Piping and Redirecting</h3>
 <p/>
-<p>JReadline supports piping and redirecting similar to who it works in various Unix shells. Read more <a href="/docs/base/redirection.html">here</a>.<br />
+<p>Æsh supports piping and redirecting similar to who it works in various Unix shells. Read more <a href="/docs/base/redirection.html">here</a>.<br />
 <br/></p>
 <h3>Settings</h3>
 <p/>
-<p>In addition to the settings a user can define in the <a href="/docs/base/editingmode">init file</a> the developer can also define a lot of settings in JReadline. Read more about settings <a href="/docs/base/settings">here</a>.</p>
+<p>In addition to the settings a user can define in the <a href="/docs/base/editingmode">init file</a> the developer can also define a lot of settings in Æsh. Read more about settings <a href="/docs/base/settings">here</a>.</p>
     </div>
   </div>
 </div>
       <hr />
       <footer>
-        <p>&copy; JBoss by Red Hat 2012</p>
+        <p>&copy; Red Hat 2012</p>
       </footer>
     </div>
   </body>

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset='utf-8' />
-    <title>JReadline</title>
+    <title>Æsh</title>
     <meta content='width=device-width, initial-scale=1.0' name='viewport' />
     <style type='text/css'>
       /*<![CDATA[*/
@@ -11,7 +11,7 @@
         }
       /*]]>*/
     </style>
-    <link href='http://jreadline.github.com/stylesheets/styles.css' rel='stylesheet' type='text/css' />
+    <link href='http://aeshell.github.com/stylesheets/styles.css' rel='stylesheet' type='text/css' />
     <!--[if lt IE 9]>
       <script src='//html5shim.googlecode.com/svn/trunk/html5.js' type='text/javascript'></script>
     <![endif]-->
@@ -21,11 +21,11 @@
       <div class='navbar-inner'>
         <div class='container'>
           <div class='github-banner'>
-            <a href='https://github.com/jreadline/jreadline.github.com'>
+            <a href='https://github.com/aeshell/aeshell.github.com'>
               <img alt='Fork me on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png' style='position:absolute;top:0;right:0;border:0;' />
             </a>
           </div>
-          <a class='brand' href='http://jreadline.github.com'>JReadline</a>
+          <a class='brand' href='http://aeshell.github.com'>Æsh</a>
           <ul class='nav'>
             <li>
               <a href='/docs/'>Documentation</a>
@@ -34,7 +34,7 @@
               <a href='/extensions/index.html'>Extensions</a>
             </li>
             <li>
-              <a href='http://github.com/jreadline'>Source Code</a>
+              <a href='http://github.com/aeshell'>Source Code</a>
             </li>
             <li>
               <a href='/docs/base/contribute'>Contribute</a>
@@ -58,7 +58,13 @@
   <div class='row-fluid'>
     <div class='span2'>
       <ul class='nav nav-list'>
-        <li class='nav-header'>JReadline Base</li>
+        <li class='nav-header'>Æsh Base</li>
+        <li>
+          <a href='/docs/base/'>Getting started</a>
+        </li>
+        <li>
+          <a href='/docs/base/faq/'>FAQ</a>
+        </li>
         <li>
           <a href='/docs/base/completion/'>Completion</a>
         </li>
@@ -66,16 +72,7 @@
           <a href='/docs/base/redirection/'>Redirection</a>
         </li>
         <li>
-          <a href='/docs/base/contribute/'>Get Involved</a>
-        </li>
-        <li>
-          <a href='/docs/base/alias/'></a>
-        </li>
-        <li>
-          <a href='/docs/base/faq/'>FAQ</a>
-        </li>
-        <li>
-          <a href='/docs/base/settings/'>Settings</a>
+          <a href='/docs/base/utils/'>Utils</a>
         </li>
         <li>
           <a href='/docs/base/alias/'>Aliases</a>
@@ -84,26 +81,26 @@
           <a href='/docs/base/editingmode/'>Editing</a>
         </li>
         <li>
-          <a href='/docs/base/'>Getting started</a>
+          <a href='/docs/base/contribute/'>Get Involved</a>
         </li>
         <li>
-          <a href='/docs/base/utils/'>Utils</a>
+          <a href='/docs/base/settings/'>Settings</a>
         </li>
       </ul>
     </div>
     <div class='span10'>
       <h1>Completion</h1>
 <p><br/></p>
-<p>JReadline provide a simple <span class="caps">API</span> to connect commands to its tab-completion list. The only thing thats needed is to implement the <a href="https://github.com/jreadline/jreadline/blob/master/src/main/java/org/jboss/jreadline/complete/Completion.java">Completion</a> interface and attach it to <a href="https://github.com/jreadline/jreadline/blob/master/src/main/java/org/jboss/jreadline/console/Console.java">Console</a> with the method <kbd>addCompletion(Completion)</kbd> or <kbd>addCompletions(List<Completion> completionList)</kbd>.</p>
+<p>Æsh provide a simple <span class="caps">API</span> to connect commands to its tab-completion list. The only thing thats needed is to implement the <a href="https://github.com/aeshell/aesh/blob/master/src/main/java/org/jboss/aesh/complete/Completion.java">Completion</a> interface and attach it to <a href="https://github.com/aeshell/aesh/blob/master/src/main/java/org/jboss/aesh/console/Console.java">Console</a> with the method <kbd>addCompletion(Completion)</kbd> or <kbd>addCompletions(List<Completion> completionList)</kbd>.</p>
 <p>A simple Example:</p>
-<pre class="prettyprint linenums"><code class="prettyprint linenums">&#x000A;import org.jboss.jreadline.complete.*;&#x000A;import org.jboss.jreadline.console.*;</code>&#x000A;&#x000A;<code class="prettyprint linenums">public class Example {&#x000A;  public static void main(String[] args) throws java.io.IOException {&#x000A;    Console console = new Console();</code>&#x000A;&#x000A;<code class="prettyprint linenums">    Completion completer = new Completion() {&#x000A;      @Override&#x000A;      public void complete(CompleteOperation co) {&#x000A;	// very simple completor&#x000A;        // if &lt;tab&gt; is pressed when the buffer is 'fo' or 'foo' it will&#x000A;        // be completed to 'foobar'&#x000A;	if(co.getBuffer().equals("fo") || co.getBuffer().equals("foo"))&#x000A;          co.addCompletionCandidate("foobar");&#x000A;      }&#x000A;    };&#x000A;    console.addCompletion(completer);</code>&#x000A;&#x000A;<code class="prettyprint linenums">    ConsoleOutput line;&#x000A;    while ((line = console.read("&gt; ")) != null) {&#x000A;        console.pushToStdOut("======&gt;\"" +line.getBuffer()+ "\n");</code>&#x000A;&#x000A;<code class="prettyprint linenums">        if (line.getBuffer().equalsIgnoreCase("quit") || line.getBuffer().equalsIgnoreCase("exit")) {&#x000A;            break;&#x000A;        }&#x000A;    }&#x000A;    console.stop();&#x000A;  }&#x000A;}</code></pre>
+<pre class="prettyprint linenums"><code class="prettyprint linenums">&#x000A;import org.jboss.aesh.complete.*;&#x000A;import org.jboss.aesh.console.*;</code>&#x000A;&#x000A;<code class="prettyprint linenums">public class Example {&#x000A;  public static void main(String[] args) throws java.io.IOException {&#x000A;    Console console = new Console();</code>&#x000A;&#x000A;<code class="prettyprint linenums">    Completion completer = new Completion() {&#x000A;      @Override&#x000A;      public void complete(CompleteOperation co) {&#x000A;	// very simple completor&#x000A;        // if &lt;tab&gt; is pressed when the buffer is 'fo' or 'foo' it will&#x000A;        // be completed to 'foobar'&#x000A;	if(co.getBuffer().equals("fo") || co.getBuffer().equals("foo"))&#x000A;          co.addCompletionCandidate("foobar");&#x000A;      }&#x000A;    };&#x000A;    console.addCompletion(completer);</code>&#x000A;&#x000A;<code class="prettyprint linenums">    ConsoleOutput line;&#x000A;    while ((line = console.read("&gt; ")) != null) {&#x000A;        console.pushToStdOut("======&gt;\"" +line.getBuffer()+ "\n");</code>&#x000A;&#x000A;<code class="prettyprint linenums">        if (line.getBuffer().equalsIgnoreCase("quit") || line.getBuffer().equalsIgnoreCase("exit")) {&#x000A;            break;&#x000A;        }&#x000A;    }&#x000A;    console.stop();&#x000A;  }&#x000A;}</code></pre>
 <h3>CompleteOperation</h3>
 <p/>
-<p>The object that is sent with every registered Completion object is <a href="https://github.com/jreadline/jreadline/blob/master/src/main/java/org/jboss/jreadline/complete/CompleteOperation.java">CompletionOperation</a>:</p>
+<p>The object that is sent with every registered Completion object is <a href="https://github.com/aeshell/aesh/blob/master/src/main/java/org/jboss/aesh/complete/CompleteOperation.java">CompletionOperation</a>:</p>
 <ul>
 	<li>buffer: is the current line when the user pressed &#8216;tab&#8217;</li>
 	<li>cursor: the position of the cursor</li>
-	<li>offset: set by the programmer if JReadline should &#8216;chop off&#8217; some of the buffer when doing completion. Set it to the same value as cursor to keep the buffer unchanged.</li>
+	<li>offset: set by the programmer if Æsh should &#8216;chop off&#8217; some of the buffer when doing completion. Set it to the same value as cursor to keep the buffer unchanged.</li>
 	<li>completionCandidates: added by the programmer if the buffer match this completion.</li>
 </ul>
     </div>
@@ -111,7 +108,7 @@
 </div>
       <hr />
       <footer>
-        <p>&copy; JBoss by Red Hat 2012</p>
+        <p>&copy; Red Hat 2012</p>
       </footer>
     </div>
   </body>

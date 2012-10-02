@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset='utf-8' />
-    <title>JReadline</title>
+    <title>Æsh</title>
     <meta content='width=device-width, initial-scale=1.0' name='viewport' />
     <style type='text/css'>
       /*<![CDATA[*/
@@ -11,7 +11,7 @@
         }
       /*]]>*/
     </style>
-    <link href='http://jreadline.github.com/stylesheets/styles.css' rel='stylesheet' type='text/css' />
+    <link href='http://aeshell.github.com/stylesheets/styles.css' rel='stylesheet' type='text/css' />
     <!--[if lt IE 9]>
       <script src='//html5shim.googlecode.com/svn/trunk/html5.js' type='text/javascript'></script>
     <![endif]-->
@@ -21,11 +21,11 @@
       <div class='navbar-inner'>
         <div class='container'>
           <div class='github-banner'>
-            <a href='https://github.com/jreadline/jreadline.github.com'>
+            <a href='https://github.com/aeshell/aeshell.github.com'>
               <img alt='Fork me on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png' style='position:absolute;top:0;right:0;border:0;' />
             </a>
           </div>
-          <a class='brand' href='http://jreadline.github.com'>JReadline</a>
+          <a class='brand' href='http://aeshell.github.com'>Æsh</a>
           <ul class='nav'>
             <li>
               <a href='/docs/'>Documentation</a>
@@ -34,7 +34,7 @@
               <a href='/extensions/index.html'>Extensions</a>
             </li>
             <li>
-              <a href='http://github.com/jreadline'>Source Code</a>
+              <a href='http://github.com/aeshell'>Source Code</a>
             </li>
             <li>
               <a href='/docs/base/contribute'>Contribute</a>
@@ -58,7 +58,13 @@
   <div class='row-fluid'>
     <div class='span2'>
       <ul class='nav nav-list'>
-        <li class='nav-header'>JReadline Base</li>
+        <li class='nav-header'>Æsh Base</li>
+        <li>
+          <a href='/docs/base/'>Getting started</a>
+        </li>
+        <li>
+          <a href='/docs/base/faq/'>FAQ</a>
+        </li>
         <li>
           <a href='/docs/base/completion/'>Completion</a>
         </li>
@@ -66,16 +72,7 @@
           <a href='/docs/base/redirection/'>Redirection</a>
         </li>
         <li>
-          <a href='/docs/base/contribute/'>Get Involved</a>
-        </li>
-        <li>
-          <a href='/docs/base/alias/'></a>
-        </li>
-        <li>
-          <a href='/docs/base/faq/'>FAQ</a>
-        </li>
-        <li>
-          <a href='/docs/base/settings/'>Settings</a>
+          <a href='/docs/base/utils/'>Utils</a>
         </li>
         <li>
           <a href='/docs/base/alias/'>Aliases</a>
@@ -84,31 +81,31 @@
           <a href='/docs/base/editingmode/'>Editing</a>
         </li>
         <li>
-          <a href='/docs/base/'>Getting started</a>
+          <a href='/docs/base/contribute/'>Get Involved</a>
         </li>
         <li>
-          <a href='/docs/base/utils/'>Utils</a>
+          <a href='/docs/base/settings/'>Settings</a>
         </li>
       </ul>
     </div>
     <div class='span10'>
-      <h1>JReadline Utils</h1>
+      <h1>Æsh Utils</h1>
 <p/>
-<p>JReadline provide several utility methods to make it easier for the developer to create commands, completions and extensions.<br />
+<p>Æsh provide several utility methods to make it easier for the developer to create commands, completions and extensions.<br />
 <br/></p>
 <h2>Parser</h2>
 <p/>
 <p>When working with command-based programs there is always a lot of text parsing, sorting, ordering, etc&#8230;<br />
-<a href="https://github.com/jreadline/jreadline/blob/master/src/main/java/org/jboss/jreadline/util/Parser.java">Parser</a> provide a method <kbd>formatDisplayList</kbd> to format lists in the same way it is sorted in Bash. JReadline use this method internally to sort completions and filenames/directories when redirecting. Several extensions also use it for displaying filenames/directories.</p>
+<a href="https://github.com/aeshell/aesh/blob/master/src/main/java/org/jboss/aesh/util/Parser.java">Parser</a> provide a method <kbd>formatDisplayList</kbd> to format lists in the same way it is sorted in Bash. Æsh use this method internally to sort completions and filenames/directories when redirecting. Several extensions also use it for displaying filenames/directories.</p>
 <p>Another useful method is <kbd>findWordClosestToCursor</kbd>. This method will return the word closest to the cursor (from the left) and also merge words that are diveded by escaped spaces. Eg: the word foo\ bar and cursor is on the position after &#8216;r&#8217;, the method will return &#8220;foo\ bar&#8221;. If the word didnt have escaped space, but &#8220;normal&#8221; space like: &#8220;foo bar&#8221; the same method would return &quot;bar.<br />
 <br/></p>
 <h2>FileUtils</h2>
 <p/>
-<p><a href="https://github.com/jreadline/jreadline/blob/master/src/main/java/org/jboss/jreadline/util/FileUtils.java">FileUtils</a> have one very useful method: <kbd>listMatchingDirectories</kbd>. Based on a text given as input in addition to the current working directory it will try to find every file/folder that match the given input. If no input is given it will list the current working directory.An example: given the input text: <kbd>/var/log/s</kbd> the method will add every file and folder starting with &#8216;e&#8217; in the <kbd>/var/log</kbd> directory to the Completion object given as parameter to the method. Note that this can be used oustide a complete operation too. Just fetch the possible files/directories with: <kbd>CompletionOperation.getCompletionCandidates()</kbd>.<br />
+<p><a href="https://github.com/aeshell/aesh/blob/master/src/main/java/org/jboss/aesh/util/FileUtils.java">FileUtils</a> have one very useful method: <kbd>listMatchingDirectories</kbd>. Based on a text given as input in addition to the current working directory it will try to find every file/folder that match the given input. If no input is given it will list the current working directory.An example: given the input text: <kbd>/var/log/s</kbd> the method will add every file and folder starting with &#8216;e&#8217; in the <kbd>/var/log</kbd> directory to the Completion object given as parameter to the method. Note that this can be used oustide a complete operation too. Just fetch the possible files/directories with: <kbd>CompletionOperation.getCompletionCandidates()</kbd>.<br />
 <br/></p>
 <h2><span class="caps">ANSI</span></h2>
 <p/>
-<p>Since JReadline is targeting <span class="caps">ANSI</span> terminals it also provide a <span class="caps">API</span> to easily generate <span class="caps">ANSI</span> codes to help the developer communicate with the terminal. In JReadline this class is called <a href="https://github.com/jreadline/jreadline/blob/master/src/main/java/org/jboss/jreadline/util/ANSI.java"><span class="caps">ANSI</span></a> and provide many methods like:</p>
+<p>Since Æsh is targeting <span class="caps">ANSI</span> terminals it also provide a <span class="caps">API</span> to easily generate <span class="caps">ANSI</span> codes to help the developer communicate with the terminal. In Æsh this class is called <a href="https://github.com/aeshell/aesh/blob/master/src/main/java/org/jboss/aesh/util/ANSI.java"><span class="caps">ANSI</span></a> and provide many methods like:</p>
 <ul>
 	<li>changing text color</li>
 	<li>changing background color</li>
@@ -124,7 +121,7 @@
 </div>
       <hr />
       <footer>
-        <p>&copy; JBoss by Red Hat 2012</p>
+        <p>&copy; Red Hat 2012</p>
       </footer>
     </div>
   </body>

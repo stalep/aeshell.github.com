@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset='utf-8' />
-    <title>JReadline</title>
+    <title>Æsh</title>
     <meta content='width=device-width, initial-scale=1.0' name='viewport' />
     <style type='text/css'>
       /*<![CDATA[*/
@@ -11,7 +11,7 @@
         }
       /*]]>*/
     </style>
-    <link href='http://jreadline.github.com/stylesheets/styles.css' rel='stylesheet' type='text/css' />
+    <link href='http://aeshell.github.com/stylesheets/styles.css' rel='stylesheet' type='text/css' />
     <!--[if lt IE 9]>
       <script src='//html5shim.googlecode.com/svn/trunk/html5.js' type='text/javascript'></script>
     <![endif]-->
@@ -21,11 +21,11 @@
       <div class='navbar-inner'>
         <div class='container'>
           <div class='github-banner'>
-            <a href='https://github.com/jreadline/jreadline.github.com'>
+            <a href='https://github.com/aeshell/aeshell.github.com'>
               <img alt='Fork me on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png' style='position:absolute;top:0;right:0;border:0;' />
             </a>
           </div>
-          <a class='brand' href='http://jreadline.github.com'>JReadline</a>
+          <a class='brand' href='http://aeshell.github.com'>Æsh</a>
           <ul class='nav'>
             <li>
               <a href='/docs/'>Documentation</a>
@@ -34,7 +34,7 @@
               <a href='/extensions/index.html'>Extensions</a>
             </li>
             <li>
-              <a href='http://github.com/jreadline'>Source Code</a>
+              <a href='http://github.com/aeshell'>Source Code</a>
             </li>
             <li>
               <a href='/docs/base/contribute'>Contribute</a>
@@ -58,7 +58,13 @@
   <div class='row-fluid'>
     <div class='span2'>
       <ul class='nav nav-list'>
-        <li class='nav-header'>JReadline Base</li>
+        <li class='nav-header'>Æsh Base</li>
+        <li>
+          <a href='/docs/base/'>Getting started</a>
+        </li>
+        <li>
+          <a href='/docs/base/faq/'>FAQ</a>
+        </li>
         <li>
           <a href='/docs/base/completion/'>Completion</a>
         </li>
@@ -66,16 +72,7 @@
           <a href='/docs/base/redirection/'>Redirection</a>
         </li>
         <li>
-          <a href='/docs/base/contribute/'>Get Involved</a>
-        </li>
-        <li>
-          <a href='/docs/base/alias/'></a>
-        </li>
-        <li>
-          <a href='/docs/base/faq/'>FAQ</a>
-        </li>
-        <li>
-          <a href='/docs/base/settings/'>Settings</a>
+          <a href='/docs/base/utils/'>Utils</a>
         </li>
         <li>
           <a href='/docs/base/alias/'>Aliases</a>
@@ -84,28 +81,28 @@
           <a href='/docs/base/editingmode/'>Editing</a>
         </li>
         <li>
-          <a href='/docs/base/'>Getting started</a>
+          <a href='/docs/base/contribute/'>Get Involved</a>
         </li>
         <li>
-          <a href='/docs/base/utils/'>Utils</a>
+          <a href='/docs/base/settings/'>Settings</a>
         </li>
       </ul>
     </div>
     <div class='span10'>
       <h1>Settings</h1>
 <p/>
-<p>In addition to the settings a user can define in the <a href="/docs/base/editingmode">init file</a> the developer can also define a lot of settings in JReadline.<br />
+<p>In addition to the settings a user can define in the <a href="/docs/base/editingmode">init file</a> the developer can also define a lot of settings in Æsh.<br />
 <br/></p>
 <h3>The Settings object</h3>
 <p/>
-<p>By changing properties in the <a href="https://github.com/jreadline/jreadline/blob/master/src/main/java/org/jboss/jreadline/console/settings/Settings.java">System</a> object it is possibe to change almost every variable that is used during initialization of JReadline. Some examples:</p>
+<p>By changing properties in the <a href="https://github.com/aeshell/aesh/blob/master/src/main/java/org/jboss/aesh/console/settings/Settings.java">System</a> object it is possibe to change almost every variable that is used during initialization of Æsh. Some examples:</p>
 <dl compact>
 <dt><kbd>name</kbd><br />
-<dd>Specify the name that is used when jreadline report errors/msgs. Default is &#8220;jreadline&#8221;.<br />
+<dd>Specify the name that is used when Æsh report errors/msgs. Default is &#8220;aesh&#8221;.<br />
 <dt><kbd>editMode</kbd><br />
-<dd>Specify which editing mode JReadline should start with. If not specified Emacs-mode is default. However, this is setting is overwritten if the user has specificed something else in their init file (<kbd>inputrc</kbd>). Read more <a href="/docs/base/editingmode">here</a>.<br />
+<dd>Specify which editing mode Æsh should start with. If not specified Emacs-mode is default. However, this is setting is overwritten if the user has specificed something else in their init file (<kbd>inputrc</kbd>). Read more <a href="/docs/base/editingmode">here</a>.<br />
 <dt><kbd>historyFile</kbd><br />
-<dd>Specify the name and location of the history file JReadline should read from during initialization and write to during exit. If not specified the default value will be used which is <kbd>user.home/.jreadline_history</kbd>.<br />
+<dd>Specify the name and location of the history file Æsh should read from during initialization and write to during exit. If not specified the default value will be used which is <kbd>user.home/.aesh_history</kbd>.<br />
 <dt><kbd>historySize</kbd><br />
 <dd>Specify the size of the history file. Default size is 500 and maximum size is <kbd>Integer.MAX_VALUE</kbd>.<br />
 <dt><kbd>historyDisabled</kbd><br />
@@ -113,7 +110,7 @@
 <dt><kbd>historyPersistent</kbd><br />
 <dd>Set this to false to prevent history to be written to file, it will no read from file during initialization either. By default this is set to true.<br />
 <dt><kbd>bellStyle</kbd><br />
-<dd>Specify which bellstype JReadline should use (not implemented yet)<br />
+<dd>Specify which bellstype Æsh should use (not implemented yet)<br />
 <dt><kbd>ansiConsole</kbd><br />
 <dd>If the target terminal is non-<span class="caps">ANSI</span> this can be set to false. By default this is set to true. Do not change this unless you as a developer really know what you are doing. No, it is not neccessary to set this to false even if the target OS is Windows.<br />
 <dt><kbd>inputStream</kbd><br />
@@ -125,49 +122,49 @@
 <dt><kbd>terminal</kbd><br />
 <dd>Specify which terminal implementation to use. By default POSIXTerminal is used on <span class="caps">POSIX</span> systems and WindowsTerminal on Windows.<br />
 <dt><kbd>readInputrc</kbd><br />
-<dd>Specify if JReadline should read settings from the user&#8217;s <kbd>inputrc</kbd> file. By default this is set to true.<br />
+<dd>Specify if Æsh should read settings from the user&#8217;s <kbd>inputrc</kbd> file. By default this is set to true.<br />
 <dt><kbd>inputrc</kbd><br />
 <dd>Specify the location and name of the init file. Default is <kbd>user.home/.inputrc</kbd>. <br />
 <dt><kbd>isLogging</kbd><br />
-<dd>Specify if JReadline should log internal operations/logic to file. By default this is set to true.<br />
+<dd>Specify if Æsh should log internal operations/logic to file. By default this is set to true.<br />
 <dt><kbd>logFile</kbd><br />
-<dd>Specify the location of the log file. By default this is <kbd>/tmp/jreadline.log</kbd>.<br />
+<dd>Specify the location of the log file. By default this is <kbd>/tmp/aesh.log</kbd>.<br />
 <dt><kbd>disableCompletion</kbd><br />
 <dd>Specify if completion functionality should be turned off. By default this is set to false;<br />
 <dt><kbd>readAhead</kbd><br />
-<dd>Specify if JReadline should read all the bytes on the buffer if its available. Set to true by default. Do not set this to false if unsure.</dl>
+<dd>Specify if Æsh should read all the bytes on the buffer if its available. Set to true by default. Do not set this to false if unsure.</dl>
 <h3>Define settings runtime</h3>
 <p/>
 <p>Many properties may be set as <span class="caps">JVM</span> properties instead of hard coded in the Settings object. Here they are:</p>
 <dl compact>
-<dt><kbd>jreadline.terminal</kbd><br />
+<dt><kbd>aesh.terminal</kbd><br />
 <dd>Same as Settings.terminal:<br />
-<dt><kbd>jreadline.editMode</kbd><br />
+<dt><kbd>aesh.editMode</kbd><br />
 <dd>Same as Settings.editMode.<br />
-<dt><kbd>jreadline.readinputrc</kbd><br />
+<dt><kbd>aesh.readinputrc</kbd><br />
 <dd>Same as Settings.readInputrc<br />
-<dt><kbd>jreadline.inputrc</kbd><br />
+<dt><kbd>aesh.inputrc</kbd><br />
 <dd>Same as Settings.inputrc<br />
-<dt><kbd>jreadline.historyfile</kbd><br />
+<dt><kbd>aesh.historyfile</kbd><br />
 <dd>Same as Settings.historyFile<br />
-<dt><kbd>jreadline.historypersistent</kbd><br />
+<dt><kbd>aesh.historypersistent</kbd><br />
 <dd>Same as Settings.historyPersistent<br />
-<dt><kbd>jreadline.historydisabled</kbd><br />
+<dt><kbd>aesh.historydisabled</kbd><br />
 <dd>Same as Settings.historyDisabled<br />
-<dt><kbd>jreadline.historysize</kbd><br />
+<dt><kbd>aesh.historysize</kbd><br />
 <dd>Same as Settings.historySize<br />
-<dt><kbd>jreadline.logging</kbd><br />
+<dt><kbd>aesh.logging</kbd><br />
 <dd>Same as Settings.isLogging<br />
-<dt><kbd>jreadline.logfile</kbd><br />
+<dt><kbd>aesh.logfile</kbd><br />
 <dd>Same as Settings.logFile<br />
-<dt><kbd>jreadline.disablecompletion</kbd><br />
+<dt><kbd>aesh.disablecompletion</kbd><br />
 <dd>Same as Settings.disableCompletion</dl>
     </div>
   </div>
 </div>
       <hr />
       <footer>
-        <p>&copy; JBoss by Red Hat 2012</p>
+        <p>&copy; Red Hat 2012</p>
       </footer>
     </div>
   </body>
