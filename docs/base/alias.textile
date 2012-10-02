@@ -7,11 +7,11 @@ index: 9
 h1. Aliases
 
 <p/>
-JReadline provide alias functionality similar to Bash alias. 
+Æsh provide alias functionality similar to Bash alias. 
 
-For those that do not know what aliases is, it allows a string to be substituted for a word when it is used as the first word of a simple command. JReadline maintains  a  list  of aliases  that  may  be set and unset with the <kbd>alias</kbd> and <kbd>unalias</kbd> commands.
+For those that do not know what aliases is, it allows a string to be substituted for a word when it is used as the first word of a simple command. Æsh maintains  a  list  of aliases  that  may  be set and unset with the <kbd>alias</kbd> and <kbd>unalias</kbd> commands.
 
-JReadline always read a complete line of input before executing. Aliases are expanded when a command is read.
+Æsh always read a complete line of input before executing. Aliases are expanded when a command is read.
 <br/>
 
 h2. Set/Unset Aliases

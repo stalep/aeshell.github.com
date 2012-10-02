@@ -1,7 +1,7 @@
 profiles:
   development:
   production:
-    base_url: http://jreadline.github.com/
+    base_url: http://aeshell.github.com/
     deploy:
        host: github_pages
        branch: master

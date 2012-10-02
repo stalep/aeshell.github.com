@@ -8,14 +8,14 @@ h1. Getting started
 
 <br/>
   
-Since JReadline is created to be extended and used by other applications it do not do much on its own. However, it is very easy to get started with a simple application. Here is a very short code that will start JReadline:
+Since Æsh is created to be extended and used by other applications it do not do much on its own. However, it is very easy to get started with a simple application. Here is a very short code that will start Æsh:
 
 bc(prettyprint linenums).. 
 public class Example {
   public static void main(String[] args) throws java.io.IOException {
-    org.jboss.jreadline.console.Console console = new org.jboss.jreadline.console.Console();
+    org.jboss.aesh.console.Console console = new org.jboss.aesh.console.Console();
 
-    org.jboss.jreadline.console.ConsoleOutput line;
+    org.jboss.aesh.console.ConsoleOutput line;
     while ((line = console.read("> ")) != null) {
         console.pushToStdOut("======>\"" +line.getBuffer()+ "\n");
 
@@ -27,29 +27,29 @@ public class Example {
   console.stop();
 }
 
-h3. Obtain JReadline
+h3. Obtain Æsh
 
 <p/>
-The easiest way to get JReadline is with "Maven":http://www.apache.org/maven. Add a dependecy like:
+The easiest way to get Æsh is with "Maven":http://www.apache.org/maven. Add a dependecy like:
 
 bc(prettyprint linenums).. <dependency>
-    <groupId>org.jboss.jreadline</groupId>
-    <artifactId>jreadline</artifactId>
-    <version>${version.jreadline}</version>
+    <groupId>org.jboss.aesh</groupId>
+    <artifactId>aesh</artifactId>
+    <version>${version.aesh}</version>
 </dependency>
 
 
 p. Using "Gradle":http://www.gradle.org/:
 
 bc(prettyprint linenums).. dependencies {
-    compile group: 'org.jboss.jreadline', name: 'jreadline', version: '0.+'
+    compile group: 'org.jboss.aesh', name: 'aesh', version: '0.+'
 }
 
-h3. Interact with JReadline
+h3. Interact with Æsh
 
 <p/>
-It is very easy to get up and running using JReadline as shown in the example above. When Console.read(..) is called it will not return until the user has pressed 'Enter' or the input stream is closed. Everything the user types is returned in a <br/>
-<a href="https://github.com/jreadline/jreadline/blob/master/src/main/java/org/jboss/jreadline/console/ConsoleOutput.java">ConsoleOutput</a> object:
+It is very easy to get up and running using Æsh as shown in the example above. When Console.read(..) is called it will not return until the user has pressed 'Enter' or the input stream is closed. Everything the user types is returned in a <br/>
+<a href="https://github.com/aeshell/aesh/blob/master/src/main/java/org/jboss/aesh/console/ConsoleOutput.java">ConsoleOutput</a> object:
 * buffer: user input
 * stdOut: if any redirect has been used prior, the std output is stored here
 * stdErr: if any redirect has been used prior, the std error is stored here
@@ -59,10 +59,10 @@ It is very easy to get up and running using JReadline as shown in the example ab
 h3. Piping and Redirecting
 
 <p/>
-JReadline supports piping and redirecting similar to who it works in various Unix shells. Read more <a href="/docs/base/redirection.html">here</a>.
+Æsh supports piping and redirecting similar to who it works in various Unix shells. Read more <a href="/docs/base/redirection.html">here</a>.
 <br/>
 
 h3. Settings
 
 <p/>
-In addition to the settings a user can define in the <a href="/docs/base/editingmode">init file</a> the developer can also define a lot of settings in JReadline. Read more about settings <a href="/docs/base/settings">here</a>.
+In addition to the settings a user can define in the <a href="/docs/base/editingmode">init file</a> the developer can also define a lot of settings in Æsh. Read more about settings <a href="/docs/base/settings">here</a>.

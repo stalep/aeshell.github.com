@@ -2,7 +2,7 @@
 %html
   %head
     %meta{ :charset=>'utf-8' }
-    %title JReadline
+    %title Æsh
     %meta{ :name=>'viewport', :content=>'width=device-width, initial-scale=1.0' }
     :css
       body {
@@ -16,23 +16,23 @@
       .navbar-inner
         .container
           .github-banner
-            %a{ :href=>'https://github.com/jreadline/jreadline.github.com' }
+            %a{ :href=>'https://github.com/aeshell/aeshell.github.com' }
               %img{ :style=>'position:absolute;top:0;right:0;border:0;', :src=>'https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png', :alt=>'Fork me on GitHub'}
-          %a.brand{ :href=>"#{site.base_url}" } JReadline
+          %a.brand{ :href=>"#{site.base_url}" } Æsh
           %ul.nav
             %li
               %a{ :href=>"/docs/" } Documentation
             %li
               %a{ :href=>"/extensions/index.html" } Extensions
             %li
-              %a{ :href=>"http://github.com/jreadline" } Source Code
+              %a{ :href=>"http://github.com/aeshell" } Source Code
             %li
               %a{ :href=>"/docs/base/contribute" } Contribute
     .container
       ~ content
       %hr
       %footer
-        %p &copy; JBoss by Red Hat #{Date.today.year}
+        %p &copy; Red Hat #{Date.today.year}
     -# Uncomment script tags (remove leading -#) when you're ready to use behaviors
     -# %script{ :type=>'text/javascript', :src=>'//cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js' }
     -# %script{ :type=>'text/javascript', :src=>"#{site.base_url}/javascripts/bootstrap-collapse.js" }

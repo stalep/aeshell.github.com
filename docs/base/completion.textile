@@ -8,13 +8,13 @@ h1. Completion
 
 <br/>
 
-JReadline provide a simple API to connect commands to its tab-completion list. The only thing thats needed is to implement the <a href="https://github.com/jreadline/jreadline/blob/master/src/main/java/org/jboss/jreadline/complete/Completion.java">Completion</a> interface and attach it to <a href="https://github.com/jreadline/jreadline/blob/master/src/main/java/org/jboss/jreadline/console/Console.java">Console</a> with the method <kbd>addCompletion(Completion)</kbd> or <kbd>addCompletions(List<Completion> completionList)</kbd>.
+Æsh provide a simple API to connect commands to its tab-completion list. The only thing thats needed is to implement the <a href="https://github.com/aeshell/aesh/blob/master/src/main/java/org/jboss/aesh/complete/Completion.java">Completion</a> interface and attach it to <a href="https://github.com/aeshell/aesh/blob/master/src/main/java/org/jboss/aesh/console/Console.java">Console</a> with the method <kbd>addCompletion(Completion)</kbd> or <kbd>addCompletions(List<Completion> completionList)</kbd>.
 
 A simple Example:
   
 bc(prettyprint linenums).. 
-import org.jboss.jreadline.complete.*;
-import org.jboss.jreadline.console.*;
+import org.jboss.aesh.complete.*;
+import org.jboss.aesh.console.*;
 
 public class Example {
   public static void main(String[] args) throws java.io.IOException {
@@ -47,10 +47,10 @@ public class Example {
 h3. CompleteOperation
 
 <p/>
-The object that is sent with every registered Completion object is <a href="https://github.com/jreadline/jreadline/blob/master/src/main/java/org/jboss/jreadline/complete/CompleteOperation.java">CompletionOperation</a>:
+The object that is sent with every registered Completion object is <a href="https://github.com/aeshell/aesh/blob/master/src/main/java/org/jboss/aesh/complete/CompleteOperation.java">CompletionOperation</a>:
 * buffer: is the current line when the user pressed 'tab'
 * cursor: the position of the cursor
-* offset: set by the programmer if JReadline should 'chop off' some of the buffer when doing completion. Set it to the same value as cursor to keep the buffer unchanged.
+* offset: set by the programmer if Æsh should 'chop off' some of the buffer when doing completion. Set it to the same value as cursor to keep the buffer unchanged.
 * completionCandidates: added by the programmer if the buffer match this completion.
 
 

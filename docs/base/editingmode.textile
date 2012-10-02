@@ -8,15 +8,15 @@ h1. Editing
 
 <br/>
 
-Similar to the GNU Readline library JReadline provides functions that allow users to edit command lines as they are typed in. JReadline har two different editing modes, Emacs and Vi. As with GNU Readline Emacs mode is default.
-Features in JReadline includes functions to maintain a list of previously-entered command lines, to recall and perhaps reedit those lines, and perform csh-like history expansion on previous commands.
+Similar to the GNU Readline library Æsh provides functions that allow users to edit command lines as they are typed in. Æsh har two different editing modes, Emacs and Vi. As with GNU Readline Emacs mode is default.
+Features in Æsh includes functions to maintain a list of previously-entered command lines, to recall and perhaps reedit those lines, and perform csh-like history expansion on previous commands.
 <br/>
 
 h3. Introduction to Line Editing
 
 <p/>
 
-Often during an interactive session you type in a long line of text, only to notice that the first word on the line is misspelled. JReadline gives you a set of commands for manipulating the text as you type it in, allowing you to just fix your typo, and not forcing you to retype the majority of the line. Using these editing commands, you move the cursor to the place that needs correction, and delete or insert the text of the corrections. Then, when you are satisfied with the line, you simply press <kbd>RET</kbd>. You do not have to be at the end of the line to press <kbd>RET</kbd>; the entire line is accepted regardless of the location of the cursor within the line.
+Often during an interactive session you type in a long line of text, only to notice that the first word on the line is misspelled. Æsh gives you a set of commands for manipulating the text as you type it in, allowing you to just fix your typo, and not forcing you to retype the majority of the line. Using these editing commands, you move the cursor to the place that needs correction, and delete or insert the text of the corrections. Then, when you are satisfied with the line, you simply press <kbd>RET</kbd>. You do not have to be at the end of the line to press <kbd>RET</kbd>; the entire line is accepted regardless of the location of the cursor within the line.
 
 To describe the notation used to represent keystrokes, the text <kbd>C-k</kbd> is read as 'Control-K' describes the character produced when the <kbd>k</kbd> key is pressed while the Control key is depressed. The text <kbd>M-k</kbd> is read as 'Meta-K' and describes the character produced when the Meta key (if you have one) is pressed, and the <kbd>k</kbd> key is pressed. The Meta key is labeled <kbd>ALT</kbd> on many keyboards.
 <br/>
@@ -69,7 +69,7 @@ Word boundaries are the same as those used by <kbd>M-f</kbd>.
 h3. Vi Commands
 
 <p/>
-JReadline does not have a full set of <kbd>vi</kbd> editing functions, it does contain enough to allow simple editing of the line. JReadline vi mode behaves as specified in the POSIX standard.
+Æsh does not have a full set of <kbd>vi</kbd> editing functions, it does contain enough to allow simple editing of the line. Æsh vi mode behaves as specified in the POSIX standard.
 
 When you enter a line in <kbd>vi</kbd> mode, you are already placed in 'insertion' mode, as if you had typed an <kbd>'i'</kbd>.  Pressing <kbd>ESC</kbd> switches you into `command' mode, where you can edit the text of the line with the standard <kbd>vi</kbd> movement keys, move to previous history lines with <kbd>'k'</kbd> and subsequent lines with <kbd>'j'</kbd>, and so forth.
 
@@ -79,33 +79,33 @@ In order to switch interactively between <kbd>emacs</kbd> and <kbd>vi</kbd> edit
 h3. Searching for Commands in History
 
 <p/>
-JReadline provides commands for searching through the command history for lines containing a specified string. There are two search modes:  <EM>incremental</EM> and <EM>non-incremental</EM>.
+Æsh provides commands for searching through the command history for lines containing a specified string. There are two search modes:  <EM>incremental</EM> and <EM>non-incremental</EM>.
 <P/>
 
-Incremental searches begin before the user has finished typing the search string. As each character of the search string is typed, JReadline displays the next entry from the history matching the string typed so far. An incremental search requires only as many characters as needed to find the desired history entry.
+Incremental searches begin before the user has finished typing the search string. As each character of the search string is typed, Æsh displays the next entry from the history matching the string typed so far. An incremental search requires only as many characters as needed to find the desired history entry.
 To search backward in the history for a particular string, type <kbd>C-r</kbd>. Typing <kbd>C-s</kbd> searches forward through the history. The characters present in the value of the <kbd>isearch-terminators</kbd> variable are used to 
 terminate an incremental search. If that variable has not been assigned a value, the <kbd>ESC</kbd> and <kbd>C-J</kbd> characters will terminate an incremental search. <kbd>C-g</kbd> will abort an incremental search and restore the original line. When the search is terminated, the history entry containing the search string becomes the current line.
 <br/>
 
-h3. JReadline Init File
+h3. Æsh Init File
 
 <p/>
-Although the JReadline library comes with a set of Emacs-like keybindings installed by default, it is possible to use a different set of keybindings.
+Although the Æsh library comes with a set of Emacs-like keybindings installed by default, it is possible to use a different set of keybindings.
 Any user can customize programs that use Readline by putting commands in an <kbd>inputrc</kbd> file, conventionally in his home directory. The name of this file is taken from the value of the environment variable <kbd>INPUTRC</kbd>. If that variable is unset, the default is <kbd>~/.inputrc</kbd>.  If that file does not exist or cannot be read, the ultimate default is <kbd>/etc/inputrc</kbd>.
 
 It is also possible to change from the default Emacs-like key binding to use Vi line editing in the init file.
 <br/>
 
-h4. JReadline Init File Syntax
+h4. Æsh Init File Syntax
 
 <p/>
-JReadline only support a simple structure of the GNU Readline init file. The current implementation only support variable settings and key bindings outside of conditional constructs. Blank lines are ignored and lines beginning with a <kbd>#</kbd> are comments. 
+Æsh only support a simple structure of the GNU Readline init file. The current implementation only support variable settings and key bindings outside of conditional constructs. Blank lines are ignored and lines beginning with a <kbd>#</kbd> are comments. 
 
 h5. Variables
 
 The syntax for setting variables is simple: <kbd>set variable value</kbd>
 
-Current supported variable settings in JReadline:
+Current supported variable settings in Æsh:
 
 <dl compact>
 <dt><kbd>editing-mode</kbd>
@@ -113,7 +113,7 @@ Current supported variable settings in JReadline:
 <dt><kbd>history-size</kbd>
 <dd> Set the maximum number of history entries saved in the history list. Max size is the same as the <kbd>java int</kbd> data type (2,147,483,647).
 <dt><kbd>bell-style</kbd>
-<dd>Controls what happens when JReadline wants to ring the terminal bell. Currently JReadline never wants to ring the bell.
+<dd>Controls what happens when Æsh wants to ring the terminal bell. Currently Æsh never wants to ring the bell.
 <dt><kbd>disable-completion</kbd>
 <dd>If set to <kbd>On</kbd>, Readline will inhibit word completion. Completion characters will be inserted into the line as if they had been mapped to <kbd>self-insert</kbd>. The default is <kbd>off</kbd>.
 </dl>
