@@ -1,0 +1,9 @@
+---
+layout: base
+title: New name!
+author: Ståle W. Pedersen
+tags: [ website, announcement, documentation ]
+---
+
+So after some time trying to find a new name we ended up with Æsh which is an acronym for Another Extendable SHell. In situations when using the name Æsh is problematic we will use Aesh.
+- and yes, a new version is coming shortly!
