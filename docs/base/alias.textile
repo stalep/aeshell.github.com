@@ -17,6 +17,6 @@ For those that do not know what aliases is, it allows a string to be substituted
 h2. Set/Unset Aliases
 
 <p/>
-Aliases are created with the <kbd>alias</kbd> command either in the shell or specified in a file thats read when jreadline starts. This file can be set in the <kbd>Settings</kbd> class. The format to define aliases is: <kbd>alias aliasname='command -params'</kbd>. This is identical in a shell and file.
+Aliases are created with the <kbd>alias</kbd> command either in the shell or specified in a file thats read when æsh starts. This file can be set in the <kbd>Settings</kbd> class. The format to define aliases is: <kbd>alias aliasname='command -params'</kbd>. This is identical in a shell and file.
 
 To remove an existing alias specify the name of the alias after the <kbd>unalias</kbd> command. eg: <kbd>unalias aliasname</kbd>.
