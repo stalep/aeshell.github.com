@@ -74,13 +74,12 @@
         <div class='span5'>
           <div class='hero-unit'>
             <h2>Latest Release</h2>
-            <p><b>Version 0.22: </b></p>
+            <p><b>Version 0.24: </b></p>
             <lu>
-              <li>Biggest release yet!</li>
-              <li>Release notes can be found <a href="https://issues.jboss.org/secure/ReleaseNote.jspa?projectId=12312720&version=12320251">here</a></li>
-              <li>Some noteable features:</li>
-              <li>- we now have a command line parser</li>
-              <li>- lots of bugfixes (mostly for windows)</li>
+              <li>Console line parser enhancements</li>
+              <li>Support \ at end of line</li>
+              <li>Uniformed logging.</li>
+              <li>++</li>
             </lu>
             <p></p>
             <p><a href="/docs/base/">Grab</a> it while its hot!</p>
@@ -91,6 +90,22 @@
         <div class='span8'>
           <section>
             <h2>News</h2>
+            <p></p>
+            <h3>
+              16 November 2012
+              ,
+              0.24
+            </h3>
+            <div class='content'>
+              <p>We have been pushing out new releases fairly often recently. <br />
+              0.23 was released last friday, the release notes can be found <a href="https://issues.jboss.org/secure/ReleaseNote.jspa?projectId=12312720&version=12320575">here</a>.<br />
+              Today we released version <a href="https://issues.jboss.org/secure/ReleaseNote.jspa?projectId=12312720&version=12320602">0.24</a>.<br />
+              There are no <span class="caps">API</span> changes except that the <a href="https://github.com/aeshell/aesh/blob/master/src/main/java/org/jboss/aesh/util/ANSI.java"><span class="caps">ANSI</span>.class</a> was changed to better work in combination with other strings.<br />
+              The command line parser was also enhanced to better support quotes and escaped spaces.<br />
+              Æsh also support multiline edits with the use of \ at the end of the line which is similar to how it work on posix shells.<br />
+              We&#8217;ve also added a better way of controlling logging. From now on no logging will be performed if its not enabled in Settings or by setting the aesh.logging property to true.<br />
+              Enjoy!</p>
+            </div>
             <p></p>
             <h3>
               02 November 2012
