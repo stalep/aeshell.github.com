@@ -60,16 +60,28 @@
       <ul class='nav nav-list'>
         <li class='nav-header'>Æsh Base</li>
         <li>
+          <a href='/docs/base/'>Getting started</a>
+        </li>
+        <li>
           <a href='/docs/base/redirection/'>Redirection</a>
         </li>
         <li>
-          <a href='/docs/base/editingmode/'>Editing</a>
+          <a href='/docs/base/faq/'>FAQ</a>
+        </li>
+        <li>
+          <a href='/docs/base/settings/'>Settings</a>
         </li>
         <li>
           <a href='/docs/base/completion/'>Completion</a>
         </li>
         <li>
+          <a href='/docs/base/editingmode/'>Editing</a>
+        </li>
+        <li>
           <a href='/docs/base/parser/'>CL Parser</a>
+        </li>
+        <li>
+          <a href='/docs/base/alias/'>Aliases</a>
         </li>
         <li>
           <a href='/docs/base/utils/'>Utils</a>
@@ -77,25 +89,13 @@
         <li>
           <a href='/docs/base/contribute/'>Get Involved</a>
         </li>
-        <li>
-          <a href='/docs/base/faq/'>FAQ</a>
-        </li>
-        <li>
-          <a href='/docs/base/'>Getting started</a>
-        </li>
-        <li>
-          <a href='/docs/base/alias/'>Aliases</a>
-        </li>
-        <li>
-          <a href='/docs/base/settings/'>Settings</a>
-        </li>
       </ul>
     </div>
     <div class='span10'>
       <h1>Getting started</h1>
 <p><br/></p>
 <p>Since Æsh is created to be extended and used by other applications it do not do much on its own. However, it is very easy to get started with a simple application. Here is a very short code that will start Æsh:</p>
-<pre class="prettyprint linenums"><code class="prettyprint linenums">&#x000A;public class Example {&#x000A;  public static void main(String[] args) throws java.io.IOException {&#x000A;    org.jboss.aesh.console.Console console = new org.jboss.aesh.console.Console();</code>&#x000A;&#x000A;<code class="prettyprint linenums">    org.jboss.aesh.console.ConsoleOutput line;&#x000A;    while ((line = console.read("&gt; ")) != null) {&#x000A;        console.pushToStdOut("======&gt;\"" +line.getBuffer()+ "\n");</code>&#x000A;&#x000A;<code class="prettyprint linenums">        if (line.getBuffer().equalsIgnoreCase("quit") || line.getBuffer().equalsIgnoreCase("exit")) {&#x000A;            break;&#x000A;        }&#x000A;    }&#x000A;  }&#x000A;  console.stop();&#x000A;}</code></pre>
+<pre class="prettyprint linenums"><code class="prettyprint linenums">&#x000A;import org.jboss.aesh.console.*;</code>&#x000A;&#x000A;<code class="prettyprint linenums">public class Example {&#x000A;  public static void main(String[] args) throws java.io.IOException {&#x000A;    Console console = new Console.getInstance();</code>&#x000A;&#x000A;<code class="prettyprint linenums">    final ConsoleCallback consoleCallback = new ConsoleCallback() {&#x000A;      @Override&#x000A;      public int readConsoleOutput(ConsoleOutput output) throws IOException{&#x000A;          exampleConsole.pushToStdOut("======&gt;\"" + output.getBuffer() + "\n");&#x000A;          if (output.getBuffer().equals("quit") || output.getBuffer().equals("exit")) {&#x000A;              exampleConsole.stop();&#x000A;          }&#x000A;      }&#x000A;   };&#x000A;   console.start();&#x000A;}</code></pre>
 <h3>Obtain Æsh</h3>
 <p/>
 <p>The easiest way to get Æsh is with <a href="http://www.apache.org/maven">Maven</a>. Add a dependecy like:</p>
@@ -125,7 +125,7 @@
 </div>
       <hr />
       <footer>
-        <p>&copy; Red Hat 2012</p>
+        <p>&copy; Red Hat 2013</p>
       </footer>
     </div>
   </body>

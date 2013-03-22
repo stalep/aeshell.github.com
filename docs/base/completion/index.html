@@ -60,34 +60,34 @@
       <ul class='nav nav-list'>
         <li class='nav-header'>Æsh Base</li>
         <li>
+          <a href='/docs/base/'>Getting started</a>
+        </li>
+        <li>
           <a href='/docs/base/redirection/'>Redirection</a>
         </li>
         <li>
-          <a href='/docs/base/editingmode/'>Editing</a>
+          <a href='/docs/base/faq/'>FAQ</a>
+        </li>
+        <li>
+          <a href='/docs/base/settings/'>Settings</a>
         </li>
         <li>
           <a href='/docs/base/completion/'>Completion</a>
         </li>
         <li>
+          <a href='/docs/base/editingmode/'>Editing</a>
+        </li>
+        <li>
           <a href='/docs/base/parser/'>CL Parser</a>
+        </li>
+        <li>
+          <a href='/docs/base/alias/'>Aliases</a>
         </li>
         <li>
           <a href='/docs/base/utils/'>Utils</a>
         </li>
         <li>
           <a href='/docs/base/contribute/'>Get Involved</a>
-        </li>
-        <li>
-          <a href='/docs/base/faq/'>FAQ</a>
-        </li>
-        <li>
-          <a href='/docs/base/'>Getting started</a>
-        </li>
-        <li>
-          <a href='/docs/base/alias/'>Aliases</a>
-        </li>
-        <li>
-          <a href='/docs/base/settings/'>Settings</a>
         </li>
       </ul>
     </div>
@@ -96,7 +96,7 @@
 <p><br/></p>
 <p>Æsh provide a simple <span class="caps">API</span> to connect commands to its tab-completion list. The only thing thats needed is to implement the <a href="https://github.com/aeshell/aesh/blob/master/src/main/java/org/jboss/aesh/complete/Completion.java">Completion</a> interface and attach it to <a href="https://github.com/aeshell/aesh/blob/master/src/main/java/org/jboss/aesh/console/Console.java">Console</a> with the method <kbd>addCompletion(Completion)</kbd> or <kbd>addCompletions(List<Completion> completionList)</kbd>.</p>
 <p>A simple Example:</p>
-<pre class="prettyprint linenums"><code class="prettyprint linenums">&#x000A;import org.jboss.aesh.complete.*;&#x000A;import org.jboss.aesh.console.*;</code>&#x000A;&#x000A;<code class="prettyprint linenums">public class Example {&#x000A;  public static void main(String[] args) throws java.io.IOException {&#x000A;    Console console = new Console();</code>&#x000A;&#x000A;<code class="prettyprint linenums">    Completion completer = new Completion() {&#x000A;      @Override&#x000A;      public void complete(CompleteOperation co) {&#x000A;	// very simple completor&#x000A;        // if &lt;tab&gt; is pressed when the buffer is 'fo' or 'foo' it will&#x000A;        // be completed to 'foobar'&#x000A;	if(co.getBuffer().equals("fo") || co.getBuffer().equals("foo"))&#x000A;          co.addCompletionCandidate("foobar");&#x000A;      }&#x000A;    };&#x000A;    console.addCompletion(completer);</code>&#x000A;&#x000A;<code class="prettyprint linenums">    ConsoleOutput line;&#x000A;    while ((line = console.read("&gt; ")) != null) {&#x000A;        console.pushToStdOut("======&gt;\"" +line.getBuffer()+ "\n");</code>&#x000A;&#x000A;<code class="prettyprint linenums">        if (line.getBuffer().equalsIgnoreCase("quit") || line.getBuffer().equalsIgnoreCase("exit")) {&#x000A;            break;&#x000A;        }&#x000A;    }&#x000A;    console.stop();&#x000A;  }&#x000A;}</code></pre>
+<pre class="prettyprint linenums"><code class="prettyprint linenums">&#x000A;import org.jboss.aesh.complete.*;&#x000A;import org.jboss.aesh.console.*;</code>&#x000A;&#x000A;<code class="prettyprint linenums">public class Example {&#x000A;  public static void main(String[] args) throws java.io.IOException {&#x000A;    Console console = Console.getInstance();</code>&#x000A;&#x000A;<code class="prettyprint linenums">    Completion completer = new Completion() {&#x000A;      @Override&#x000A;      public void complete(CompleteOperation co) {&#x000A;	// very simple completor&#x000A;        // if &lt;tab&gt; is pressed when the buffer is 'fo' or 'foo' it will&#x000A;        // be completed to 'foobar'&#x000A;	if(co.getBuffer().equals("fo") || co.getBuffer().equals("foo"))&#x000A;          co.addCompletionCandidate("foobar");&#x000A;      }&#x000A;    };&#x000A;    console.addCompletion(completer);</code>&#x000A;&#x000A;<code class="prettyprint linenums">    final ConsoleCallback consoleCallback = new ConsoleCallback() {&#x000A;      @Override&#x000A;      public int readConsoleOutput(ConsoleOutput output) throws IOException{&#x000A;         console.pushToStdOut("======&gt;\"" + output.getBuffer() + "\"\n");&#x000A;         if (output.getBuffer().equalsIgnoreCase("quit") || output.getBuffer().equalsIgnoreCase("exit") ||&#x000A;             output.getBuffer().equalsIgnoreCase("reset")) {&#x000A;              console.stop();&#x000A;         }&#x000A;     }&#x000A;  };&#x000A;  console.setConsoleCallback(consoleCallback);&#x000A;  console.start();&#x000A;}</code></pre>
 <h3>CompleteOperation</h3>
 <p/>
 <p>The object that is sent with every registered Completion object is <a href="https://github.com/aeshell/aesh/blob/master/src/main/java/org/jboss/aesh/complete/CompleteOperation.java">CompletionOperation</a>:</p>
@@ -111,7 +111,7 @@
 </div>
       <hr />
       <footer>
-        <p>&copy; Red Hat 2012</p>
+        <p>&copy; Red Hat 2013</p>
       </footer>
     </div>
   </body>

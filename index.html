@@ -45,131 +45,146 @@
     </div>
     <div class='container'>
       <div class='row'>
-        <div class='span7'>
-          <div class='page-header'>
-            <h3>Æsh</h3>
-            <br />
-            <p>Æsh (Another Extendable SHell) is a Java library that provides an API which allow the programmer to write command-based programs in a terminal-independent manner. Æsh support most GNU Readline features and many different terminal operations.</p>
-          </div>
-          <div class='step'>
-            <h2>Features:</h2>
-            <ul>
-              <li>Line editing</li>
-              <li>History (search, persistence)</li>
-              <li>Completion</li>
-              <li>Masking</li>
-              <li>Undo and Redo</li>
-              <li>Paste buffer</li>
-              <li>Emacs and Vi editing mode</li>
-              <li>Support POSIX OS's and Windows</li>
-              <li>Support out and error streams</li>
-              <li>Command line parser</li>
-              <li>Aliases</li>
-              <li>Redirect</li>
-              <li class='last'>Pipeline</li>
-            </ul>
-            <p>- and its very configurable</p>
-          </div>
-        </div>
-        <div class='span5'>
-          <div class='hero-unit'>
-            <h2>Latest Release</h2>
-            <p><b>Version 0.24: </b></p>
-            <lu>
-              <li>Console line parser enhancements</li>
-              <li>Support \ at end of line</li>
-              <li>Uniformed logging.</li>
-              <li>++</li>
-            </lu>
-            <p></p>
-            <p><a href="/docs/base/">Grab</a> it while its hot!</p>
-          </div>
-        </div>
+  <div class='span7'>
+    <div class='page-header'>
+      <h3>Æsh</h3>
+      <br />
+      <p>Æsh (Another Extendable SHell) is a Java library that provides an API which allow the programmer to write command-based programs in a terminal-independent manner. Æsh support most GNU Readline features and many different terminal operations.</p>
+    </div>
+    <div class='step'>
+      <h2>Features:</h2>
+      <ul>
+        <li>Line editing</li>
+        <li>History (search, persistence)</li>
+        <li>Completion</li>
+        <li>Masking</li>
+        <li>Undo and Redo</li>
+        <li>Paste buffer</li>
+        <li>Emacs and Vi editing mode</li>
+        <li>Support POSIX OS's and Windows</li>
+        <li>Support out and error streams</li>
+        <li>Command line parser</li>
+        <li>Aliases</li>
+        <li>Redirect</li>
+        <li class='last'>Pipeline</li>
+      </ul>
+      <p>- and its very configurable</p>
+    </div>
+  </div>
+  <div class='span5'>
+    <div class='hero-unit'>
+      <h2>Latest Release</h2>
+      <p><b>Version 0.36: </b></p>
+      <lu>
+        <li>Input read is threaded</li>
+        <li>Persisting aliases</li>
+        <li>CompletionParser</li>
+        <li>++</li>
+      </lu>
+      <p></p>
+      <p><a href="/docs/base/">Grab</a> it while its hot!</p>
+    </div>
+  </div>
+</div>
+<div class='row'>
+  <div class='span8'>
+    <section>
+      <h2>News</h2>
+      <p></p>
+      <h3>
+        21 March 2013
+        ,
+        0.36 & docs
+      </h3>
+      <div class='content'>
+        <p>First&#8230; &#8211; sorry for the lack of documentation updates!<br />
+Æsh has been continously updated and is used in even more projects than before. <br />
+After version 0.33 we made some big changes to the <span class="caps">API</span>. &#8211; we made Æsh multithreaded!<br />
+The biggest change is that Console.read(..) is gone as you know it. Instead we&#8217;ve added a callback (called ConsoleCallback) which will be called whenever the user press enter. <br />
+Æsh extensions is also pushed to maven and has some very exiting features like less,more and man. More info regarding the extensions will be added later.<br />
+- and yes, the docs are updated to the latest <span class="caps">API</span> changes.</p>
+<p>Enjoy!</p>
       </div>
-      <div class='row'>
-        <div class='span8'>
-          <section>
-            <h2>News</h2>
-            <p></p>
-            <h3>
-              16 November 2012
-              ,
-              0.24
-            </h3>
-            <div class='content'>
-              <p>We have been pushing out new releases fairly often recently. <br />
-              0.23 was released last friday, the release notes can be found <a href="https://issues.jboss.org/secure/ReleaseNote.jspa?projectId=12312720&version=12320575">here</a>.<br />
-              Today we released version <a href="https://issues.jboss.org/secure/ReleaseNote.jspa?projectId=12312720&version=12320602">0.24</a>.<br />
-              There are no <span class="caps">API</span> changes except that the <a href="https://github.com/aeshell/aesh/blob/master/src/main/java/org/jboss/aesh/util/ANSI.java"><span class="caps">ANSI</span>.class</a> was changed to better work in combination with other strings.<br />
-              The command line parser was also enhanced to better support quotes and escaped spaces.<br />
-              Æsh also support multiline edits with the use of \ at the end of the line which is similar to how it work on posix shells.<br />
-              We&#8217;ve also added a better way of controlling logging. From now on no logging will be performed if its not enabled in Settings or by setting the aesh.logging property to true.<br />
-              Enjoy!</p>
-            </div>
-            <p></p>
-            <h3>
-              02 November 2012
-              ,
-              0.22
-            </h3>
-            <div class='content'>
-              <p>We&#8217;re happy to announce the first official release of Æsh!<br />
-              It took us a bit more time that first planned, but then this release is one of the bigger one we&#8217;ve had. The single biggest thing is a <a href=/docs/base/parser/>command line parser</a>, but there are also many enhancements and bug fixes. The release notes can be found <a href="https://issues.jboss.org/secure/ReleaseNote.jspa?projectId=12312720&version=12320251">here</a>. Enjoy!</p>
-            </div>
-            <p></p>
-            <h3>
-              02 October 2012
-              ,
-              New name!
-            </h3>
-            <div class='content'>
-              <p>So after some time trying to find a new name we ended up with Æsh which is an acronym for Another Extendable SHell. In situations when using the name Æsh is problematic we will use Aesh.<br />
-              - and yes, a new version is coming shortly!</p>
-            </div>
-            <p></p>
-            <h3>
-              06 September 2012
-              ,
-              0.20 Released!
-            </h3>
-            <div class='content'>
-              <p>We finally released 0.20 which include a rewrite of <a href="/docs/base/redirection/">redirection and pipelines</a>, <a href="/docs/base/alias">aliases</a> and the possiblity to specify the name of the cli.<br />
-              Redirection and pipelines also support filenames with spaces and escaped spaces. Naming the cli is now possible via the Settings object. Aliasing works similar to aliasing in bash.</p>
-            </div>
-            <p></p>
-            <h3>
-              23 August 2012
-              ,
-              Even More Documentation
-            </h3>
-            <div class='content'>
-              <p>We have added a <a href="/docs/base/settings">settings</a> and a <a href="/docs/base/utils/">utils</a> section and updated some of the other documentation sections. More to come after the release of 0.20 which will include more complete pipeline/redirection support + support for filenames/paths which contain spaces when doing completion/pipeline/redirection.</p>
-            </div>
-            <p></p>
-            <h3>
-              22 August 2012
-              ,
-              More Documentation
-            </h3>
-            <div class='content'>
-              <p>We have added a lot more documentation on how to use Æsh and some of its features. It is still not complete, but it should give an easier start on how it works for developers that are new to Æsh.</p>
-            </div>
-            <p></p>
-            <h3>
-              16 August 2012
-              ,
-              Online
-            </h3>
-            <div class='content'>
-              <p>We&#8217;re finally online with the help of <a href="http://awestruct.org/">awestruct</a>. More info/docs to come in the near future&#8230;</p>
-            </div>
-            <p></p>
-          </section>
-        </div>
+      <p></p>
+      <h3>
+        16 November 2012
+        ,
+        0.24
+      </h3>
+      <div class='content'>
+        <p>We have been pushing out new releases fairly often recently. <br />
+        0.23 was released last friday, the release notes can be found <a href="https://issues.jboss.org/secure/ReleaseNote.jspa?projectId=12312720&version=12320575">here</a>.<br />
+        Today we released version <a href="https://issues.jboss.org/secure/ReleaseNote.jspa?projectId=12312720&version=12320602">0.24</a>.<br />
+        There are no <span class="caps">API</span> changes except that the <a href="https://github.com/aeshell/aesh/blob/master/src/main/java/org/jboss/aesh/util/ANSI.java"><span class="caps">ANSI</span>.class</a> was changed to better work in combination with other strings.<br />
+        The command line parser was also enhanced to better support quotes and escaped spaces.<br />
+        Æsh also support multiline edits with the use of \ at the end of the line which is similar to how it work on posix shells.<br />
+        We&#8217;ve also added a better way of controlling logging. From now on no logging will be performed if its not enabled in Settings or by setting the aesh.logging property to true.<br />
+        Enjoy!</p>
       </div>
+      <p></p>
+      <h3>
+        02 November 2012
+        ,
+        0.22
+      </h3>
+      <div class='content'>
+        <p>We&#8217;re happy to announce the first official release of Æsh!<br />
+        It took us a bit more time that first planned, but then this release is one of the bigger one we&#8217;ve had. The single biggest thing is a <a href=/docs/base/parser/>command line parser</a>, but there are also many enhancements and bug fixes. The release notes can be found <a href="https://issues.jboss.org/secure/ReleaseNote.jspa?projectId=12312720&version=12320251">here</a>. Enjoy!</p>
+      </div>
+      <p></p>
+      <h3>
+        02 October 2012
+        ,
+        New name!
+      </h3>
+      <div class='content'>
+        <p>So after some time trying to find a new name we ended up with Æsh which is an acronym for Another Extendable SHell. In situations when using the name Æsh is problematic we will use Aesh.<br />
+        - and yes, a new version is coming shortly!</p>
+      </div>
+      <p></p>
+      <h3>
+        06 September 2012
+        ,
+        0.20 Released!
+      </h3>
+      <div class='content'>
+        <p>We finally released 0.20 which include a rewrite of <a href="/docs/base/redirection/">redirection and pipelines</a>, <a href="/docs/base/alias">aliases</a> and the possiblity to specify the name of the cli.<br />
+        Redirection and pipelines also support filenames with spaces and escaped spaces. Naming the cli is now possible via the Settings object. Aliasing works similar to aliasing in bash.</p>
+      </div>
+      <p></p>
+      <h3>
+        23 August 2012
+        ,
+        Even More Documentation
+      </h3>
+      <div class='content'>
+        <p>We have added a <a href="/docs/base/settings">settings</a> and a <a href="/docs/base/utils/">utils</a> section and updated some of the other documentation sections. More to come after the release of 0.20 which will include more complete pipeline/redirection support + support for filenames/paths which contain spaces when doing completion/pipeline/redirection.</p>
+      </div>
+      <p></p>
+      <h3>
+        22 August 2012
+        ,
+        More Documentation
+      </h3>
+      <div class='content'>
+        <p>We have added a lot more documentation on how to use Æsh and some of its features. It is still not complete, but it should give an easier start on how it works for developers that are new to Æsh.</p>
+      </div>
+      <p></p>
+      <h3>
+        16 August 2012
+        ,
+        Online
+      </h3>
+      <div class='content'>
+        <p>We&#8217;re finally online with the help of <a href="http://awestruct.org/">awestruct</a>. More info/docs to come in the near future&#8230;</p>
+      </div>
+      <p></p>
+    </section>
+  </div>
+</div>
       <hr />
       <footer>
-        <p>&copy; Red Hat 2012</p>
+        <p>&copy; Red Hat 2013</p>
       </footer>
     </div>
   </body>
