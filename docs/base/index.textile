@@ -11,20 +11,22 @@ h1. Getting started
 Since Æsh is created to be extended and used by other applications it do not do much on its own. However, it is very easy to get started with a simple application. Here is a very short code that will start Æsh:
 
 bc(prettyprint linenums).. 
+import org.jboss.aesh.console.*;
+
 public class Example {
   public static void main(String[] args) throws java.io.IOException {
-    org.jboss.aesh.console.Console console = new org.jboss.aesh.console.Console();
+    Console console = new Console.getInstance();
 
-    org.jboss.aesh.console.ConsoleOutput line;
-    while ((line = console.read("> ")) != null) {
-        console.pushToStdOut("======>\"" +line.getBuffer()+ "\n");
-
-        if (line.getBuffer().equalsIgnoreCase("quit") || line.getBuffer().equalsIgnoreCase("exit")) {
-            break;
-        }
-    }
-  }
-  console.stop();
+    final ConsoleCallback consoleCallback = new ConsoleCallback() {
+      @Override
+      public int readConsoleOutput(ConsoleOutput output) throws IOException{
+          exampleConsole.pushToStdOut("======>\"" + output.getBuffer() + "\n");
+          if (output.getBuffer().equals("quit") || output.getBuffer().equals("exit")) {
+              exampleConsole.stop();
+          }
+      }
+   };
+   console.start();
 }
 
 h3. Obtain Æsh
